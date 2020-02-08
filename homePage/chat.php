@@ -146,8 +146,8 @@
                 <div class="mesgs">
                   <div id="msg_history">
                     <img id="loader" src='http://opengraphicdesign.com/wp-content/uploads/2009/01/loader64.gif'>
-
-                    <div class="incoming_msg">
+                    
+                    <!-- <div class="incoming_msg">
                       <div class="incoming_msg_img"> <img src="icons/profile.png" alt="sunil"> </div>
                       <div class="received_msg">
                         <div class="received_withd_msg">
@@ -239,7 +239,7 @@
                           <span class="time_date"> 11:01 AM | Today</span>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
 
                   </div>
 

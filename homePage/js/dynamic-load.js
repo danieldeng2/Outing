@@ -6,7 +6,8 @@ $inMessagePrepend='<div class="incoming_msg"><div class="incoming_msg_img"> <img
 $messageAppend='</p><span class="time_date"> 11:01 AM | June 9</span></div></div>';
 
 for(var i=0;i<20;i++){
-    $('.inner').prepend('<div class="messages">First Batch messages<br/><span class="date">'+Date()+'</span> </div>');}
+    $('#msg_history').prepend($outMessagePrepend + Date()+ $messageAppend);
+}
 
 
 $("#msg_history").scrollTop($("#msg_history")[0].scrollHeight);
@@ -35,7 +36,7 @@ $('#msg_history').scroll(function(){
         setTimeout(function(){
         // Simulate retrieving 4 messages
         for(var i=0;i<4;i++){
-        $('.inner').prepend('<div class="messages">Newly Loaded messages<br/><span class="date">'+Date()+'</span> </div>');
+        $('#msg_history').prepend($outMessagePrepend + Date() + $messageAppend);
             }
             // Hide loader on success
             $('#loader').hide();
