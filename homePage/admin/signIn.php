@@ -14,7 +14,7 @@ if (((empty($username) == true) || (empty($password)) == true)) {
     $valid = false;
 }
 
-$user_check_query = "SELECT password FROM users WHERE username = '$username' LIMIT 1";
+$user_check_query = "SELECT password, userid FROM users WHERE username = '$username' LIMIT 1";
 $result = pg_query($db, $user_check_query);
 if (!$result) {
   echo "Wrong username or password!!";
@@ -29,6 +29,7 @@ if ((count($arr) == 0) || ($arr["password"] != $password_encrypt)) {
 if ($valid == true) {
   echo "Logged in successfully";
   $_SESSION['username'] = $username;
+  $_SESSION['userid'] = $arr["userid"];
   $_SESSION['success'] = "Logged in successfully";
 }
 $db . pg_close();

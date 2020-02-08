@@ -40,8 +40,6 @@ if (count($errors) == 0) {
         exit;
     }
     echo "Registered successfully";
-    $_SESSION['username'] = $username;
-    $_SESSION['success'] = "Registered successfully";
 }
 
 $db . pg_close();
