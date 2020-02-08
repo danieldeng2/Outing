@@ -146,8 +146,13 @@
                 <div class="mesgs">
                   <div id="msg_history">
                     <img id="loader" src='http://opengraphicdesign.com/wp-content/uploads/2009/01/loader64.gif'>
+<<<<<<< HEAD:homePage/chat.php
                     
                     <!-- <div class="incoming_msg">
+=======
+
+                    <div class="incoming_msg">
+>>>>>>> 8495ca18e3aae55e3a5edafd5952cb99b7013d75:homePage/chat.html
                       <div class="incoming_msg_img"> <img src="icons/profile.png" alt="sunil"> </div>
                       <div class="received_msg">
                         <div class="received_withd_msg">
@@ -239,7 +244,11 @@
                           <span class="time_date"> 11:01 AM | Today</span>
                         </div>
                       </div>
+<<<<<<< HEAD:homePage/chat.php
                     </div> -->
+=======
+                    </div>
+>>>>>>> 8495ca18e3aae55e3a5edafd5952cb99b7013d75:homePage/chat.html
 
                   </div>
 
