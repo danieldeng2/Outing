@@ -1,15 +1,17 @@
 $(document).ready(function(){
+  $.post(
+    "admin/loadEvents.php",
+    function(data,status) {loadEvents(data);}
+    );
 
   loadEvents();
-
+    
 
 });
 
-function loadEvents(){
-  $.post(
-    "admin/loadEvents.php",
-    function(data,status) {alert(data);}
-    );
+function loadEvents(data){
+  if(data != undefined){
+  $( "#rowId" ).append(data);}
 }
 
 $( "#signUpForm" ).submit(
