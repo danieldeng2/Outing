@@ -36,11 +36,9 @@ $('#msg_history').scroll(function(){
         setTimeout(function(){
         // Simulate retrieving 4 messages
         for(var i=0;i<4;i++){
-<<<<<<< HEAD
+
         $('#msg_history').prepend($outMessagePrepend + Date() + $messageAppend);
-=======
-        $('.inner').prepend('<div class="messages">Newly Loaded messages<br/><span class="date">'+Date()+'</span> </div>');
->>>>>>> dynamic message skeleton done
+
             }
             // Hide loader on success
             $('#loader').hide();
