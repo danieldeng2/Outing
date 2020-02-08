@@ -1,4 +1,3 @@
-
 $( "#signUpForm" ).submit(
 function( event ) {
     event.preventDefault();
@@ -10,3 +9,16 @@ function( event ) {
         );
   }
 );
+
+$( "#newEventForm" ).submit(
+  function( event ) {
+      event.preventDefault();
+      $.post(
+          "admin/newEvent.php",
+          $(this).serialize(),
+          function(data,status) {alert(status);}
+          );
+    }
+  );
+  
+
