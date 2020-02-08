@@ -19,7 +19,10 @@ for(var i=0;i<20;i++){
     $('#msg_history').prepend($outMessagePrepend + Date()+ $messageAppend);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5060b3de6258397f7e85495527f392845e878e91
 $("#msg_history").scrollTop($("#msg_history")[0].scrollHeight);
 
 // Assign scroll function to chatBox DIV
