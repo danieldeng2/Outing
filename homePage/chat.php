@@ -146,8 +146,7 @@
                 <div class="mesgs">
                   <div id="msg_history">
                     <img id="loader" src='http://opengraphicdesign.com/wp-content/uploads/2009/01/loader64.gif'>
-<<<<<<< HEAD:homePage/chat.php
-                    
+
                     <!-- <div class="incoming_msg">
 =======
 
@@ -248,7 +247,7 @@
                     </div> -->
 =======
                     </div>
->>>>>>> 8495ca18e3aae55e3a5edafd5952cb99b7013d75:homePage/chat.html
+>>>>>
 
                   </div>
 
