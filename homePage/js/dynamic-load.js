@@ -1,9 +1,26 @@
+$(document).ready(function(){
+
+
+});
+
+
 // GENERATE FIRST BATCH OF MESSAGES
 //This will be where you do your SQL and PHP first
 
-$outMessagePrepend='<div class="outgoing_msg"><div class="sent_msg"><p>';
-$inMessagePrepend='<div class="incoming_msg"><div class="incoming_msg_img"> <img src="icons/profile.png" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>';
-$messageAppend='</p><span class="time_date"> 11:01 AM | June 9</span></div></div>';
+ var outMessagePrepend='<div class="outgoing_msg"><div class="sent_msg"><p>';
+ var inMessagePrepend='<div class="incoming_msg"><div class="incoming_msg_img"> <img src="icons/profile.png" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>';
+ var messageAppend='</p><span class="time_date"> 11:01 AM | June 9</span></div></div>';
+
+function addMessages(messageContent, isMessageIncoming)  {
+  if (isMessageIncoming) {
+    $('#msg_history').append(inMessagePrepend + messageContent + messageAppend);
+  } else {
+    $('#msg_history').append(outMessagePrepend + messageContent + messageAppend);
+  }
+}
+
+
+// Not related to this but just saving here lmao
 
 for(var i=0;i<20;i++){
     $('#msg_history').prepend($outMessagePrepend + Date()+ $messageAppend);
