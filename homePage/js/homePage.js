@@ -1,3 +1,17 @@
+$(document).ready(function(){
+
+  loadEvents();
+
+
+});
+
+function loadEvents(){
+  $.post(
+    "admin/loadEvents.php",
+    function(data,status) {alert(data);}
+    );
+}
+
 $( "#signUpForm" ).submit(
 function( event ) {
     event.preventDefault();
