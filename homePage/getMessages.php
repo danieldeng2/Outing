@@ -28,6 +28,6 @@
 
     while ($row = pg_fetch_row($result)) {
         echo "uname: $row[0]\n";
-    }    
+    }
     $db.pg_close();
 ?>
