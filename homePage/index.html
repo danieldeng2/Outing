@@ -36,6 +36,9 @@
       <a class="navbar-brand" data-toggle="modal" data-target="#signUpModalCenter">
         <img src="icons/account_circle-24px.svg" width="36" height="36" alt="My Info">
       </a>
+      <a class="navbar-brand" data-toggle="modal" data-target="#signInModalCenter">
+        <img src="icons/account_circle-24px.svg" width="36" height="36" alt="My Info">
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -344,6 +347,41 @@
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- SignIn Modal -->
+  <div class="modal fade" id="signInModalCenter" tabindex="-1" role="dialog" aria-labelledby="signInModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <form action="/" id="signInForm">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signInModalCenterTitle">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Username</span>
+              </div>
+              <input type="text" class="form-control" name="signInUserName" placeholder="required">
+            </div>
+            
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Password</span>
+              </div>
+              <input type="password" class="form-control" name="signInPassword" placeholder="required">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Sign In</button>
           </div>
         </form>
       </div>
