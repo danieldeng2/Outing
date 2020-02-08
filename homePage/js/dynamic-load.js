@@ -27,36 +27,3 @@ $('#msg_history').scroll(function(){
     if ($('#msg_history').scrollTop() == 0){
         // Display AJAX loader animation
          $('#loader').show();
-<<<<<<< HEAD
-
-      // Youd do Something like this here
-      // Query the server and paginate results
-      // Then prepend
-      /*  $.ajax({
-            url:'getmessages.php',
-            dataType:'html',
-            success:function(data){
-                $('.inner').prepend(data);
-            };
-        });*/
-        //BUT FOR EXAMPLE PURPOSES......
-        // We'll just simulate generation on server
-
-
-        //Simulate server delay;
-        setTimeout(function(){
-        // Simulate retrieving 4 messages
-        for(var i=0;i<4;i++){
-
-        $('#msg_history').prepend($outMessagePrepend + Date() + $messageAppend);
-
-            }
-            // Hide loader on success
-            $('#loader').hide();
-            // Reset scroll
-            $('#msg_history').scrollTop(30);
-        },780);
-    }
-});
-=======
->>>>>>> commit before checkout
