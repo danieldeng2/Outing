@@ -3,11 +3,11 @@
 @ob_end_clean();
 include "../../includes/dbconnect.php";
 
-$username = pg_escape_string($db, filter_var($_POST["singUpUserName"], FILTER_SANITIZE_STRING));
-$password = pg_escape_string($db, filter_var($_POST["singUpPassword"], FILTER_SANITIZE_STRING));
+$username = pg_escape_string($db, filter_var($_POST["signUpUserName"], FILTER_SANITIZE_STRING));
+$password = pg_escape_string($db, filter_var($_POST["signUpPassword"], FILTER_SANITIZE_STRING));
 $email = pg_escape_string($db, filter_var($_POST["signUpEmail"], FILTER_SANITIZE_STRING));
 $bank_account = pg_escape_string($db, filter_var($_POST["signUpBankAccount"], FILTER_SANITIZE_STRING));
-$sord_code = pg_escape_string($db, filter_var($_POST["signUpSortCode"], FILTER_SANITIZE_STRING));
+$sort_code = pg_escape_string($db, filter_var($_POST["signUpSortCode"], FILTER_SANITIZE_STRING));
 $payment_addr = pg_escape_string($db, filter_var($_POST["signUpPayment"], FILTER_SANITIZE_STRING));
 $errors = array();
 $valid = true;
@@ -17,7 +17,7 @@ if ((empty($username) || empty($password)) == true) {
     $valid = false;
 }
 
-if ((!empty(email)) && (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
+if ((!empty($email)) && (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
     array_push($errors, "Invalid email address");
     $valid = false;
 }
@@ -31,20 +31,17 @@ if ($user) {
 }
 
 if (count($errors) == 0) {
-    $encrypt_assword = md5($password);
-    $save_query = "INSERT INTO users (";
-    if (!empty($email)) {
-        $save_query = $save_query . "email";
+    $encrypt_password = md5($password);
+    $insert_query = "INSERT INTO users (username, password, email, bankaccount, sortcode, paymentlink)
+        VALUES('$username','$encrypt_password','$email','$bank_account','$sort_code','$payment_addr')";
+    $result = pg_query($db, $insert_query);
+    if ($result == false) {
+        echo "Internal Error!";
+        exit;
     }
-    if (!empty($email)) {
-        $save_query = $save_query . "email";
-    }
-    if (!empty($email)) {
-        $save_query = $save_query . "email";
-    }
-    if (!empty($email)) {
-        $save_query = $save_query . "email";
-    }
+    echo "Registered successfully";
+    $_SESSION['username'] = $username;
+    $_SESSION['success'] = "Registered successfully";
 }
 
 $db . pg_close();
