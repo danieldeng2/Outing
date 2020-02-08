@@ -6,7 +6,7 @@
  $messageAppend='</p><span class="time_date"> it works! </span></div></div>';
 
 
-    include("includes/dbconnect.php");
+    include("../../includes/dbconnect.php");
 
     $messages = pg_query($db, "SELECT *
                                FROM messages
@@ -14,20 +14,19 @@
                                LIMIT 10");
 
     while ($row = pg_fetch_row($messages)) {
-      // $content = $row['content'];
-      // $entities = $row['entities'];
-      // $writer = $row['writer'];
-      // $group = $row['group'];
-      // $time = $row['time'];
+      $content = $row['content'];
+      $entities = $row['entities'];
+      $writer = $row['writer'];
+      $group = $row['group'];
+      $time = $row['time'];
 
-      echo "string";
       // $status = $writer === $writer;
 
       // if ($writer == $writer) {
-        // echo $incomingMessagePrepend . $content . $messageAppend;
+        echo $incomingMessagePrepend . $content . $messageAppend;
         // } else {
         // echo $outgoingMessagePrepend . $content . $messageAppend;
-      }
+      // }
     }
 
     $db.pg_close();
