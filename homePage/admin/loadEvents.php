@@ -3,7 +3,7 @@
     @ob_end_clean();
     include("../../includes/dbconnect.php");
     $result = pg_query($db, "SELECT * FROM groups");
-    
+    echo $_COOKIE["userid"];
     while (($row = pg_fetch_assoc($result))) {
         $eventId = $row['groupid'];
         $eventName = $row['name'];

@@ -27,10 +27,10 @@ if ((count($arr) == 0) || ($arr["password"] != $password_encrypt)) {
 }
 
 if ($valid == true) {
+  setcookie("username", $username);
+  setcookie("userid", $arr["userid"]);
+  setcookie("success", $arr["Logged in successfully"]);
   echo "Logged in successfully";
-  $_SESSION['username'] = $username;
-  $_SESSION['userid'] = $arr["userid"];
-  $_SESSION['success'] = "Logged in successfully";
 }
 $db . pg_close();
 ?>
