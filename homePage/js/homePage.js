@@ -10,6 +10,17 @@ function( event ) {
   }
 );
 
+$( "#signInForm" ).submit(
+  function( event ) {
+      event.preventDefault();
+      $.post(
+          "admin/signIn.php",
+          $(this).serialize(),
+          function(data,status) {alert(status);}
+          );
+    }
+  );
+
 $( "#newEventForm" ).submit(
   function( event ) {
       event.preventDefault();
