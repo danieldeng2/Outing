@@ -137,7 +137,12 @@ img{ max-width:100%;}
 .messaging {
   height: 100%;
 }
-.msg_history {
+#msg_history {
   height: 100%;
   overflow-y: auto;
+}
+#loader {
+  height: 64px;
+  width: 64px;
+  color: #0080ff;
 }
