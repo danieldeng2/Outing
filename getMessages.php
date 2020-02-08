@@ -14,11 +14,11 @@
                                LIMIT 10");
 
     while ($row = pg_fetch_row($messages)) {
-      // $content = $row['content'];
-      // $entities = $row['entities'];
-      // $writer = $row['writer'];
-      // $group = $row['group'];
-      // $time = $row['time'];
+      $content = $row['content'];
+      $entities = $row['entities'];
+      $writer = $row['writer'];
+      $group = $row['group'];
+      $time = $row['time'];
 
       echo "string";
       // $status = $writer === $writer;
