@@ -1,12 +1,18 @@
 $(document).ready(function(){
-  
+  $.post("chat_functions/getMessages.php",
+    function(data) {
+      addMessageToChat(data);
+    }
+  )
 
 });
 
 
 // GENERATE FIRST BATCH OF MESSAGES
 //This will be where you do your SQL and PHP first
-
+function addMessageToChat(str) {
+  $('#msg_history').append(str);
+}
 
 // Not related to this but just saving here lmao
 
