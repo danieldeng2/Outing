@@ -21,7 +21,7 @@ function( event ) {
     $.post(
         "admin/signUp.php",
         $(this).serialize(),
-        function(data,status) {alert(status);}
+        function(data,status) {alert(data);}
         );
   }
 );
@@ -32,7 +32,7 @@ $( "#signInForm" ).submit(
       $.post(
           "admin/signIn.php",
           $(this).serialize(),
-          function(data,status) {alert(status);}
+          function(data,status) {alert(data);}
           );
     }
   );
