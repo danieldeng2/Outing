@@ -250,6 +250,7 @@
   <div class="modal fade" id="newModalCenter" tabindex="-1" role="dialog" aria-labelledby="newModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
+          <form action="/" id="newEventForm">
           <div class="modal-header">
             <h5 class="modal-title" id="newModalCenterTitle">New Event</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -259,29 +260,29 @@
           <div class="modal-body">
 
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Event Name">
+              <input type="text" class="form-control" name="eventName" placeholder="Event Name">
             </div>
             
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Destination">
+              <input type="text" class="form-control" name="eventDestination" placeholder="Destination">
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Time</span>
               </div>
-              <input type="datetime-local" class="form-control">
+              <input type="datetime-local" class="form-control" name="eventTime">
             </div>
             
             <div class="input-group">
-              <textarea class="form-control" aria-label="description" placeholder="Description"></textarea>
+              <textarea class="form-control" aria-label="description" name="eventDescription" placeholder="Description"></textarea>
             </div>
 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary">Create</button>
           </div>
-          
+        </form>
         </div>
       </div>
   </div>
@@ -291,7 +292,6 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <form action="/" id="signUpForm">
-
           <div class="modal-header">
             <h5 class="modal-title" id="signUpModalCenterTitle">Sign Up</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
