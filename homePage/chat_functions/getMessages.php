@@ -26,25 +26,8 @@
         echo $incomingMessagePrepend . $content . $messageAppend;
         // } else {
         // echo $outgoingMessagePrepend . $content . $messageAppend;
-<<<<<<< HEAD
-<<<<<<< HEAD
-      }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-      // }
->>>>>>> dynamic load partially done
     }
-=======
->>>>>>> Done fetching messages
-=======
-    }
->>>>>>> Deleted chat to pull
-=======
-      // }
-    }
->>>>>>> 5060b3de6258397f7e85495527f392845e878e91
-
+    
     $db.pg_close();
 
 
