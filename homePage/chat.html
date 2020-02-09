@@ -61,20 +61,14 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="navbar-brand" data-toggle="modal" data-target="#newModalCenter">
-              <img src="icons/fiber_new-24px.svg" width="36" height="36" alt="New">
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="navbar-brand" data-toggle="modal" data-target="#joinModalCenter">
-              <img src="icons/group_add-24px.svg" width="36" height="36" alt="Join">
+            <a class="navbar-brand" href="index.html">
+              <img src="icons/home-24px.svg" width="36" height="36" alt="New">
             </a>
           </li>
         </ul>
-      </div>
+      
     </div>
   </nav>
 
@@ -272,46 +266,6 @@
     </div>
   </div>
 
-  <!-- New Event Modal -->
-  <div class="modal fade" id="newModalCenter" tabindex="-1" role="dialog" aria-labelledby="newModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <form action="/" id="newEventForm">
-          <div class="modal-header">
-            <h5 class="modal-title" id="newModalCenterTitle">New Event</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" name="eventName" placeholder="Event Name">
-            </div>
-            
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" name="eventDestination" placeholder="Destination">
-            </div>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Time</span>
-              </div>
-              <input type="datetime-local" class="form-control" name="eventTime">
-            </div>
-            
-            <div class="input-group">
-              <textarea class="form-control" aria-label="description" name="eventDescription" placeholder="Description"></textarea>
-            </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Create</button>
-          </div>
-        </form>
-        </div>
-      </div>
-  </div>
 
   <!-- SignUp Modal -->
   <div class="modal fade" id="signUpModalCenter" tabindex="-1" role="dialog" aria-labelledby="signUpModalCenterTitle" aria-hidden="true">
