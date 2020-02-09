@@ -29,9 +29,9 @@ if ((count($arr) == 0) || ($arr["password"] != $password_encrypt)) {
 if ($valid == true) {
   $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
 
-  setcookie("username", $username, time()+60*60*24*365, '/', $domain, false);
-  setcookie("userid", $arr["userid"], time()+60*60*24*365, '/', $domain, false);
-  setcookie("success", "Logged in successfully", time()+60*60*24*365, '/', $domain, false);
+  setcookie("username", $username, time()+60*60*24*365, '/~zd419/Outing/', $domain, false);
+  setcookie("userid", $arr["userid"], time()+60*60*24*365, '/~zd419/Outing/', $domain, false);
+  setcookie("success", "Logged in successfully", time()+60*60*24*365, '/~zd419/Outing/', $domain, false);
   echo "Logged in successfully";
 }
 $db . pg_close();
