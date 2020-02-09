@@ -17,7 +17,7 @@ $(document).ready(function(){
 
     $.post(
       "chat_functions/getMessages.php",
-      { groupNo : groupId, minCurTime : minDateTime, maxDateTime : maxDateTime},
+      { groupNo : groupId},
       function(data,status) {loadEvents(data);}
       );
 
@@ -33,11 +33,12 @@ function loadEvents(data){
   }
 
   prevData = data;
-  
+
   if (data != undefined){
     var linesArray = data.split("</br>");
     for (var i = 0; i < linesArray.length; i++) {
         var valsArray = linesArray[i].split(",");
+        alert(minDateTime);
         for (var j = 0; j < valsArray.length; j++) {
             if (valsArray[1] === (getCookie("userid"))) {
                 $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);

@@ -13,8 +13,6 @@
                                FROM messages
                                WHERE groupId = '".$_POST["groupNo"]."'
                                AND content IS NOT NULL
-                               AND '".$_POST["minDateTime"]."' < messages.time
-                               AND '".$_POST["maxDateTime"]."' > messages.time
                                ORDER BY messages.time
                                LIMIT 5");
 
