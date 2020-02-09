@@ -8,11 +8,14 @@
   var user = getCookie("userid");
 
 $(document).ready(function(){
+
+  alert("got here");
   $.post(
     "chat_functions/getMessages.php",
     { groupNo : groupId},
     function(data,status) {loadEvents(data);}
     );
+
 });
 
 
