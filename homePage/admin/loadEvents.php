@@ -17,7 +17,6 @@
         $eventDestination = $row['destination'];
         $eventTime = $row['datetime'];
         $eventMembers = $row['members'];
-        $createdTime = $row['createdate'];
         $membersConfirm = $row['membersconfirmed'];
 
         $members = preg_split ("/\,/", $eventMembers);  
