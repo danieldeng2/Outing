@@ -18,5 +18,5 @@ $("#messageBar").submit(
 );
 
 function resetField() {
-  document.getElementById("messageBar").reset();
+  document.getElementById('messageBar').reset();
 }
