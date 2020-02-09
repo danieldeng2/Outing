@@ -16,7 +16,7 @@ $(document).ready(function(){
 
     $.post(
       "chat_functions/getMessages.php",
-      { groupNo : groupId},
+      { groupNo : groupId, curtime : dateTime},
       function(data,status) {loadEvents(data);}
       );
 
@@ -36,11 +36,9 @@ if (data != undefined){
           if (valsArray[1] === (getCookie("userid"))) {
               $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
               dateTime = Math.max(valsArray[2], dateTime);
-              alert(dateTime);
             } else {
                 $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
                 curTime = Math.max(valsArray[2], dateTime);
-              alert(dateTime);
             }
       }
   }
