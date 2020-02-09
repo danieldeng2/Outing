@@ -13,7 +13,7 @@ $(document).ready(function(){
 
     $.post(
       "chat_functions/getMessages.php",
-      { groupNo : groupId, maxTime : curTime},
+      { groupNo : groupId},
       function(data,status) {loadEvents(data);}
       );
 
@@ -38,6 +38,7 @@ if (data != undefined){
                 curTime = Math.max(valsArray[2], curTime);
             }
       }
+      alert(curTime);
   }
 }
 }
