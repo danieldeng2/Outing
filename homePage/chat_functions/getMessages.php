@@ -8,14 +8,14 @@
 
     @ob_end_clean();
     include("../../includes/dbconnect.php");
-    
+
     $messages = pg_query($db, "SELECT *
                                FROM messages
-
-                               WHERE groupId = '".$_POST["groupNo"]."'
-
+                               WHERE groupId = 4
+                               AND content IS NOT NULL
                                ORDER BY messages.time
                                LIMIT 5");
+
 
     if (!$db) {
       echo "query error";
