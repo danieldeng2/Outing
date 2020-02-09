@@ -14,7 +14,7 @@ $("#messageBar").submit(
       "chat_functions/putMessages.php",
      {message:$("#messageContent").val(), groupid : groupId},
 
-      function(data, status) {alert(data);}
+      function(data, status) {}
     );
 
   }

@@ -14,7 +14,11 @@ $(document).ready(function(){
     {groupNo:groupId},
     function(data,status) {loadRightColumn(data);}
     );
+
+  
+    
 });
+
 
 function loadRightColumn(data){
   if(data != undefined){
@@ -80,7 +84,20 @@ $( "#signUpForm" ).submit(
             );
       }
     );
-  
+$( "#newPollForm" ).submit(
+  function( event ) {
+      event.preventDefault();
+      var formData = $(this).serializeArray();
+      formData.push({name: "groupNo", value: groupId });
+      // alert (JSON.stringify(formData));
+      $.post(
+          "admin/newPoll.php",
+          formData,
+          function(data,status) {alert(status);}
+          );
+    }
+  );
+
   $( "#newEventForm" ).submit(
     function( event ) {
         event.preventDefault();

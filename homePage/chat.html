@@ -283,6 +283,7 @@
   <div class="modal fade" id="newPollModalCenter" tabindex="-1" role="dialog" aria-labelledby="newPollModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
+        <form id="newPollForm">
         <div class="modal-header">
           <h5 class="modal-title" id="newPollModalCenterTitle">New Poll</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -295,41 +296,45 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Title</span>
             </div>
-            <input type="text" class="form-control" placeholder="required">
+            <input type="text" name="newPollTitle" class="form-control" placeholder="required">
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Option 1</span>
             </div>
-            <input type="text" class="form-control" placeholder="required">
+            <input type="text" name="newPollOp1" class="form-control" placeholder="required">
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Option 2</span>
             </div>
-            <input type="text" class="form-control" placeholder="required">
+            <input type="text"  name="newPollOp2" class="form-control" placeholder="required">
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Option 3</span>
             </div>
-            <input type="text" class="form-control" placeholder="Optional">
+            <input type="text"  name="newPollOp3" class="form-control" placeholder="Optional">
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Option 4</span>
             </div>
-            <input type="text" class="form-control" placeholder="Optional">
+            <input type="text"  name="newPollOp4" class="form-control" placeholder="Optional">
           </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Create</button>
+          <b>recommend: </b>
+          <button type="button" class="btn btn-primary">H-Bar</button>
+          <button type="button" class="btn btn-primary">South Kensington Nandos</button>
+          <button type="button" class="btn btn-primary">Gloucester Road KFC</button>
+          <button type="submit" class="btn btn-primary">Create</button>
         </div>
-
+        </form>
       </div>
     </div>
   </div>

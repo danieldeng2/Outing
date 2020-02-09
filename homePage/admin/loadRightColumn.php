@@ -46,19 +46,19 @@
     }
 
     function loadPayment($db, $eventName){
-        $payment = pg_query($db, "SELECT username,amount,message,bankaccount,sortcode FROM payments JOIN users ON receiverId=userId WHERE groupId=".$_POST["groupNo"]." AND iscomplete=FALSE"); //AND senderId = this
-        while (($row = pg_fetch_assoc($payment))) {
-            $username = $row['username'];
-            $amount = $row['amount'];
-            $message = $row['message'];
-            $bankaccount = $row['bankaccount'];
-            $sortcode = $row['sortcode'];
+        // $payment = pg_query($db, "SELECT username,amount,message,bankaccount,sortcode FROM payments JOIN users ON receiverId=userId WHERE groupId=".$_POST["groupNo"]." AND iscomplete=FALSE"); //AND senderId = this
+        // while (($row = pg_fetch_assoc($payment))) {
+        //     $username = $row['username'];
+        //     $amount = $row['amount'];
+        //     $message = $row['message'];
+        //     $bankaccount = $row['bankaccount'];
+        //     $sortcode = $row['sortcode'];
 
-            echo '
-                <p class="card-text">Please pay <b>'.$username.'</b> <b>'.($amount/100).'</b> for <b>'.$message.'</b>.</p>
-                <p class="card-text"><b>Payment Info: '.checkEmpty($bankaccount).' '.$sortcode.'</b></p>
-            ';
-        }
+        //     echo '
+        //         <p class="card-text">Please pay <b>'.$username.'</b> <b>'.($amount/100).'</b> for <b>'.$message.'</b>.</p>
+        //         <p class="card-text"><b>Payment Info: '.checkEmpty($bankaccount).' '.$sortcode.'</b></p>
+        //     ';
+        // }
     }
 
     function loadPolls($db, $eventName){
@@ -87,7 +87,7 @@
                           $voteNum = (int) json_decode($row[3])[$j];     
                           echo '<h6 class="card-subtitle text-muted">'.$optionstext.'</h6>
                           <div class="progress mb-3 mt-1" >
-                            <div class="progress-bar" role="progressbar" style="width:'.((int) $voteNum/($totalvote+1)*100).'%" aria-valuenow="'.$voteNum.'" aria-valuemin="0" aria-valuemax="'.$totalvote.'"></div>
+                            <div class="progress-bar" role="progressbar" style="width:'.((int) $voteNum/($totalvote)*100).'%" aria-valuenow="'.$voteNum.'" aria-valuemin="0" aria-valuemax="'.$totalvote.'"></div>
                           </div> ';
                           $j++;
                       };
