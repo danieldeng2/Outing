@@ -90,7 +90,7 @@
         <div class="carousel-inner">';
 
         $active = TRUE;
-        $j = 0;
+       
         while (($row = pg_fetch_array($polling))) {
             // pollid groupid isactive duetime optionsdate optionstext optionsresult voteduser
             if (in_array($_COOKIE["userid"],json_decode($row[2]))){
@@ -102,7 +102,7 @@
                       <h4 class="card-title">'.$row["polltitle"].'</h4>';
 
                       $totalvote = array_sum(json_decode($row[3]));
-                      
+                      $j = 0;
                       foreach (json_decode($row[1]) as &$optionstext) {       
                           $voteNum = (int) json_decode($row[3])[$j];     
                           echo '<h6 class="card-subtitle text-muted">'.$optionstext.'</h6>
@@ -121,7 +121,7 @@
                 <div class="card-body">
                 <h4 class="d-inline-block card-title">'.$row["polltitle"].'</h4>';
                 
-  
+                $j = 0;
                 foreach (json_decode($row[1]) as &$optionstext) {            
                     echo '<div class="form-check">
                         <input class="form-check-input" type="radio" name="pollRadios" id="pollRadios'.$j.'" value="'.$j.'">
@@ -130,7 +130,7 @@
                     $j++;
                 }
                 echo '<button class="btn btn-primary mt-2 float-right" type="submit" id="PollButton'.$row["pollid"].'">Submit</button>';
-                echo '<script>setPollSubmit('.$row["pollid"].');</script>';
+                echo '<script>setjubmit('.$row["pollid"].');</script>';
             
             }
             echo '      </div>
