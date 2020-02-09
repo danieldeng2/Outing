@@ -1,7 +1,8 @@
 $(document).ready(function(){
   $.post(
     "chat_functions/getMessages.php",
-    function(data,status) {addMessageToChat(data);}
+    function(data,status) {alert(data);}
+    alert("gothere!");
   );
 });
 
