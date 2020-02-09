@@ -20,11 +20,6 @@
     }
 
     while ($row = pg_fetch_assoc($messages)){
-      // $content = $row['content'];
-      // $entities = $row['entities'];
-      // $writer = $row['writer'];
-      // $group = $row['group'];
-      // $time = $row['time'];
       echo $row["content"] . "," . $row["writer"] . "," . $row["time"] . "</br>";
     }
 
