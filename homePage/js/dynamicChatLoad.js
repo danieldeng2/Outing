@@ -7,14 +7,14 @@ $(document).ready(function(){
   );
 });
 
-$('msg_history').append("appendeddddddddddddddddddd");
-$('msg_history').prepend("prependeddddddddddddddddddd");
-
-
 function addMessageToChat(data) {
-  alert("got into add message");
-  $('msg_history').append("<script>alert('asdfdsaf')</script>");
-  $("msg_history").append(data);
+  if(data == undefined){
+    alert("got into undefined message");
+  } else {
+    alert("")
+    $('msg_history').append("<script>alert('asdfdsaf')</script>");
+    $("msg_history").append(data);
+  }
 }
 
 function resetForm() {
