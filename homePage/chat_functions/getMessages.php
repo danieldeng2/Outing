@@ -14,7 +14,7 @@
                                WHERE groupId = '".$_POST["groupNo"]."'
                                AND content IS NOT NULL
                                ORDER BY messages.time
-                               LIMIT 5");
+                               LIMIT 1");
 
 
     if (!$db) {

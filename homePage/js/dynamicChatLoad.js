@@ -5,12 +5,12 @@ var messageTimeAppend='</span></div></div>';
 var url = window.location.href;
 var idStart = url.indexOf("id=");
 var groupId = url.substring(idStart + 3, idStart + 4);
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-var minDateTime = date+' '+time;
-var maxDateTime = date+' '+time;
-var prevData;
+// var today = new Date();
+// var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+// var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+// var minDateTime = date+' '+time;
+// var maxDateTime = date+' '+time;
+// var prevData;
 $(document).ready(function(){
   setInterval(
     function() {
@@ -28,12 +28,12 @@ $(document).ready(function(){
 
 
 function loadEvents(data){
-  if (prevData == null || prevData === data) {
-    prevData = data;
-    return;
-  }
-
-  prevData = data;
+  // if (prevData == null || prevData === data) {
+  //   prevData = data;
+  //   return;
+  // }
+  //
+  // prevData = data;
 
   if (data != undefined){
     var linesArray = data.split("</br>");
