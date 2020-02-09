@@ -20,11 +20,10 @@ function loadEvents(data){
     var linesArray = data.split("</br>");
     for (var i = 0; i < linesArray.length; i++) {
         var valsArray = linesArray[i].split(",");
-        alert(valsArray);
-        // for (var j = 0; j < valsArray.length; j++) {
+        for (var j = 0; j < valsArray.length; j++) {
           // $("#msg_history").append(incomingMessagePrepend + linesArray[i] + messageTimePrepend + messageTimeAppend);
-          // $("#msg_history").append(vals[j]);
-        // }
+          $("#msg_history").append(vals[j]);
+        }
     //   alert(i);
     //   if (true) {
     //     $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
