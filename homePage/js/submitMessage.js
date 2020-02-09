@@ -11,12 +11,13 @@ var messageContent = document.getElementById("messageContent").value;
 $("#messageBar").submit(
   function ( event ) {
     event.preventDefault();
+
     alert("success");
-    // $.post(
-    //   "chat_functions/putMessages.php",
-    //   {message : $(this).serialize(), groupid : groupId},
-    //   function(data, status) {alert("message submitted");}
-    // );
+    $.post(
+      "chat_functions/putMessages.php",
+    $(this).serialize(),
+      function(data, status) {alert("message submitted");}
+    );
 
   }
 );
