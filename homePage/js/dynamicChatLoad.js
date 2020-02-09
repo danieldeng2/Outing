@@ -29,6 +29,7 @@ $(document).ready(function(){
 
 function loadEvents(data){
   if (prevData == null || prevData === data) {
+    prevData = data;
     return;
   }
 
