@@ -1,9 +1,18 @@
 $(document).ready(function(){
+  $.post(
+    "admin/loadEvents.php",
+    function(data,status) {loadEvents(data);}
+    );
+
+  loadEvents();
+
   alert("this works");
 });
 
 $(document).ready(function(){
+
   $("#msg_history").load("chat_functions/getMessagse.php");
+
 });
 
 // GENERATE FIRST BATCH OF MESSAGES
