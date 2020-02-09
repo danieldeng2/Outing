@@ -11,7 +11,9 @@
 
     $messages = pg_query($db, "SELECT *
                                FROM messages
+
                                WHERE groupId = '".$_POST["groupNo"]."'
+
                                ORDER BY messages.time
                                LIMIT 5");
 
