@@ -2,7 +2,7 @@ var beforeName = '<li class="list-group-item border-0"><div class="row no-gutter
 var afterName = '<small class="card-subtitle text-muted">5 mins</small> </h6><small class="card-text"><b>Payment Info: </b>696969 420420 <a href="#">link</a></small></div></div></div></li>';
 
 var idStart = url.indexOf("id=");
-var groupId = url.substring(idStart + 2, idStart + 4);
+var groupId = url.substring(idStart + 3, idStart + 4);
 
 $(document).ready(function(){
 $.post(
