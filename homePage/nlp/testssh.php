@@ -17,11 +17,9 @@ if (!$ssh->login('kf619', $key)) {
 
 $command = "python3 /home/sitorusezra/googlecloud/natlang/natlang.py ";
 $nlp = json_decode($ssh->exec($command . '"I pay £ 30 for Alice and Bob"'));
-echo ($nlp->PERSON);
-print_r( $_COOKIE["userid"]);
-echo intdiv(5,2);
-if (True) {
-$arr[] = 1000;}
-$arr[] = 1001;
-echo $arr[0];
+echo ($nlp->PRICE);
+echo $_COOKIE["userid"];
+preg_match_all('!\d+!', "I pay 30", $matches);
+$price = implode(' ', $matches[0]) * 100;
+echo $price;
 ?>

@@ -1,7 +1,7 @@
 #!/usr/bin/php
 
 <?php
-function query($argument)
+function nlpquery($argument)
 {
     set_include_path(__DIR__ . '/../../includes/phpseclib');
     include "Net/SSH2.php";

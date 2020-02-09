@@ -1,13 +1,13 @@
 #!/usr/bin/php
 
 <?php
-function ($generate, $groupID) {
+function generate($generate, $groupID) {
     include __DIR__ . "../../includes/dbconnect.php";
     $people = strtolower($generate->PERSON);
     $price_str = $generate->PRICE;
     $receiver = $_COOKIE["userid"];
     preg_match_all('!\d+!', $price_str, $matches);
-    $price = implode(' ', $matches[0]);
+    $price = implode(' ', $matches[0]) * 100;
 
     if (empty($people) || empty($price_str)) {
         return;
@@ -31,19 +31,31 @@ function ($generate, $groupID) {
             }
         }
     } else {
-      $members = explode(",", $people);
-      foreach ($members as $member) {
-        $query = "SELECT username, id FROM users WHERE username='$member'";
-        $result = pg_query($db, $query);
-        $row = pg_fetch_assoc($result);
-        $memberid[] = $row["id"];
-      }
+        $members = explode(",", $people);
+        foreach ($members as $member) {
+            $query = "SELECT userid FROM users WHERE username='$member'";
+            $result = pg_query($db, $query);
+            $row = pg_fetch_assoc($result);
+            $memberid[] = $row["userid"];
+        }
 
-      if (sizeof($members) != sizeof($memberid)) {
-        return;
-      }
+        if (sizeof($members) != sizeof($memberid)) {
+            echo "wrong username";
+            return;
+        }
 
-      
+        $member_num = sizeof($memberid);
+        $price_each = intdiv($price, $member_num);
+
+        foreach ($memberid as $senderid) {
+            $query = "INSERT INTO payments (INSERT INTO payments (senderid, receiverid, amount, groupid, iscomplete)
+            VALUES('$senderid', '$receiver', '$price_each', '$groupID', FALSE)";
+            $result = pg_query($db, $query);
+            if (!$result) {
+                echo "Database insert error2!";
+            }
+        }
+
     }
 
 }
