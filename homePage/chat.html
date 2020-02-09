@@ -76,93 +76,7 @@
   <div class="container-fluid h-100">
     <div class="row w-100 h-100">
       <div class="col col-lg-3.5 border-right h-100 px-0 sidebar">
-        <ul class="list-group list-group-flush h-50 border-bottom peopleList">
-
-          <li class="list-group-item border-0">
-            <div class="row no-gutters">
-              <div class="col-auto">
-                <img src="icons/profile.png" width="64" height="64" class="img-fluid" alt="">
-              </div>
-              <div class="col">
-                <div class="card-block px-2">
-                  <h6 class="card-title mb-0">Hoang Vu <small class="card-subtitle text-muted">5 mins</small> </h6>
-
-                  <small class="card-text"><b>Payment Info: </b>696969 420420 <a href="#">link</a></small>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li class="list-group-item  border-0">
-            <div class="row no-gutters">
-              <div class="col-auto">
-                <img src="icons/profile.png" width="64" height="64" class="img-fluid" alt="">
-              </div>
-              <div class="col">
-                <div class="card-block px-2">
-                  <h6 class="card-title mb-0">Jamie Liao <small class="card-subtitle text-muted">10 mins</small> </h6>
-
-                  <small class="card-text"><b>Payment Info: </b>696969 420420 <a href="#">link</a></small>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item  border-0">
-            <div class="row no-gutters">
-              <div class="col-auto">
-                <img src="icons/profile.png" width="64" height="64" class="img-fluid" alt="">
-              </div>
-              <div class="col">
-                <div class="card-block px-2">
-                  <h6 class="card-title mb-0">Jamie Liao <small class="card-subtitle text-muted">10 mins</small> </h6>
-
-                  <small class="card-text"><b>Payment Info: </b>696969 420420 <a href="#">link</a></small>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item  border-0">
-            <div class="row no-gutters">
-              <div class="col-auto">
-                <img src="icons/profile.png" width="64" height="64" class="img-fluid" alt="">
-              </div>
-              <div class="col">
-                <div class="card-block px-2">
-                  <h6 class="card-title mb-0">Jamie Liao <small class="card-subtitle text-muted">10 mins</small> </h6>
-
-                  <small class="card-text"><b>Payment Info: </b>696969 420420 <a href="#">link</a></small>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item  border-0">
-            <div class="row no-gutters">
-              <div class="col-auto">
-                <img src="icons/profile.png" width="64" height="64" class="img-fluid" alt="">
-              </div>
-              <div class="col">
-                <div class="card-block px-2">
-                  <h6 class="card-title mb-0">Jamie Liao <small class="card-subtitle text-muted">10 mins</small> </h6>
-
-                  <small class="card-text"><b>Payment Info: </b>696969 420420 <a href="#">link</a></small>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item  border-0">
-            <div class="row no-gutters">
-              <div class="col-auto">
-                <img src="icons/profile.png" width="64" height="64" class="img-fluid" alt="">
-              </div>
-              <div class="col">
-                <div class="card-block px-2">
-                  <h6 class="card-title mb-0">Jamie Liao <small class="card-subtitle text-muted">10 mins</small> </h6>
-
-                  <small class="card-text"><b>Payment Info: </b>696969 420420 <a href="#">link</a></small>
-                </div>
-              </div>
-            </div>
-          </li>
+        <ul class="list-group list-group-flush h-50 border-bottom peopleList" id="LeftColumnLoad">
         </ul>
 
         <div style="height:100%; width:100%" id="map"></div>
@@ -247,127 +161,105 @@
   </div>
 
 
-  <!-- Join Modal -->
-  <div class="modal fade" id="joinModalCenter" tabindex="-1" role="dialog" aria-labelledby="joinModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+
+
+ <!-- SignUp Modal -->
+ <div class="modal fade" id="signUpModalCenter" tabindex="-1" role="dialog" aria-labelledby="signUpModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form action="/" id="signUpForm">
         <div class="modal-header">
-          <h5 class="modal-title" id="joinModalCenterTitle">Join Event</h5>
+          <h5 class="modal-title" id="signUpModalCenterTitle">Sign Up</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
+
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="6 digit code">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Username</span>
+            </div>
+            <input type="text" class="form-control" name="signUpUserName" placeholder="required">
+          </div>
+          
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Password</span>
+            </div>
+            <input type="password" class="form-control" name="signUpPassword" placeholder="required">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Email</span>
+            </div>
+            <input type="text" class="form-control" name="signUpEmail" placeholder="Optional">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Bank Account</span>
+            </div>
+            <input type="text" class="form-control" name="signUpBankAccount" placeholder="Optional">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Sort Code</span>
+            </div>
+            <input type="text" class="form-control" name="signUpSortCode" placeholder="Optional">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Payment Link</span>
+            </div>
+            <input type="url" class="form-control" name="signUpPayment" placeholder="Optional">
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Join</button>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
         </div>
-        
-      </div>
+      </form>
     </div>
   </div>
+</div>
 
+<!-- SignIn Modal -->
+<div class="modal fade" id="signInModalCenter" tabindex="-1" role="dialog" aria-labelledby="signInModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form action="/" id="signInForm">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signInModalCenterTitle">Sign In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
 
-  <!-- SignUp Modal -->
-  <div class="modal fade" id="signUpModalCenter" tabindex="-1" role="dialog" aria-labelledby="signUpModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <form action="/" id="signUpForm">
-          <div class="modal-header">
-            <h5 class="modal-title" id="signUpModalCenterTitle">Sign Up</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Username</span>
+            </div>
+            <input type="text" class="form-control" name="signInUserName" placeholder="required">
           </div>
-          <div class="modal-body">
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Username</span>
-              </div>
-              <input type="text" class="form-control" name="signUpUserName" placeholder="required">
+          
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Password</span>
             </div>
-            
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Password</span>
-              </div>
-              <input type="password" class="form-control" name="signUpPassword" placeholder="required">
-            </div>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Email</span>
-              </div>
-              <input type="text" class="form-control" name="signUpEmail" placeholder="Optional">
-            </div>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Bank Account</span>
-              </div>
-              <input type="text" class="form-control" name="signUpBankAccount" placeholder="Optional">
-            </div>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Sort Code</span>
-              </div>
-              <input type="text" class="form-control" name="signUpSortCode" placeholder="Optional">
-            </div>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Payment Link</span>
-              </div>
-              <input type="url" class="form-control" name="signUpPayment" placeholder="Optional">
-            </div>
+            <input type="password" class="form-control" name="signInPassword" placeholder="required">
           </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </div>
+      </form>
     </div>
   </div>
-
-  <!-- SignIn Modal -->
-  <div class="modal fade" id="signInModalCenter" tabindex="-1" role="dialog" aria-labelledby="signInModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <form action="/" id="signInForm">
-          <div class="modal-header">
-            <h5 class="modal-title" id="signInModalCenterTitle">Sign In</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Username</span>
-              </div>
-              <input type="text" class="form-control" name="signInUserName" placeholder="required">
-            </div>
-            
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Password</span>
-              </div>
-              <input type="password" class="form-control" name="signInPassword" placeholder="required">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Sign In</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+</div>
 
   <!-- New Poll Modal -->
   <div class="modal fade" id="newPollModalCenter" tabindex="-1" role="dialog" aria-labelledby="newPollModalCenterTitle" aria-hidden="true">
