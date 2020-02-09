@@ -13,7 +13,7 @@ $("#messageBar").submit(
     event.preventDefault();
 
     $.post(
-      "chat_functions/putMessages.php",
+      "../chat_functions/putMessages.php",
     {message : $(this).serialize(), groupid : groupId},
       function(data, status) {alert("message submitted");}
     );
