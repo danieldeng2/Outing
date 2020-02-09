@@ -7,16 +7,15 @@
   var groupId = url.substring(idStart + 3, idStart + 4);
 
 $(document).ready(function(){
-
-  $.post(
-    "chat_functions/getMessages.php",
-    { groupNo : groupId }
-    ,
-    function(data,status) {loadEvents(data);}
+  setInterval(function() {
+    $.post(
+      "chat_functions/getMessages.php",
+      { groupNo : groupId },
+      function(data,status) {loadEvents(data);}
     );
 
-  loadEvents();
-
+    loadEvents();
+  }, 1000);
 
 });
 
