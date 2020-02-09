@@ -13,7 +13,6 @@
                                FROM messages
                                WHERE groupId = '".$_POST["groupNo"]."'
                                AND content IS NOT NULL
-                               AND messages.time
                                ORDER BY messages.time
                                LIMIT 5");
 
