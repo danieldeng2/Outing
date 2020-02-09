@@ -17,16 +17,16 @@ $(document).ready(function(){
 
 function loadEvents(data){
   if (data != undefined){
-    $("#msg_history").append(incomingMessagePrepend + data + messageTimePrepend + messageTimeAppend);
-    // var linesArray = data.split("<br>");
-    // for (var i = 0; i < linesArray.length; i++) {
+    var linesArray = data.split("<br>");
+    for (var i = 0; i < linesArray.length; i++) {
+      $("#msg_history").append(incomingMessagePrepend + linesArray[i] + messageTimePrepend + messageTimeAppend);
     //   var valsArray = linesArray[i].split(",");
     //   alert(i);
     //   if (true) {
     //     $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
     //   } else {
     //     $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
-    //   }
+    }
     // }
   }
 }
