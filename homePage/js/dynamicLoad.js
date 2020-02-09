@@ -52,3 +52,8 @@ $('#msg_history').scroll(function(){
     if ($('#msg_history').scrollTop() == 0){
         // Display AJAX loader animation
          $('#loader').show();
+
+
+function resetMessage() {
+  document.getElementById("messageBar").reset();
+}
