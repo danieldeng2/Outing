@@ -70,7 +70,7 @@
     }
 
     function loadPolling($db, $eventId, $eventName){
-        $polling = pg_query($db, "SELECT polltitle, array_to_json(optionstext),array_to_json(voteduser),array_to_json(optionsresult)  FROM polls WHERE groupId=$eventId AND isactive=TRUE");
+        $polling = pg_query($db, "SELECT polltitle, array_to_json(optionstext),array_to_json(voteduser),array_to_json(optionsresult),pollid  FROM polls WHERE groupId=$eventId AND isactive=TRUE");
         echo '
         <div class="col-lg-8 mt-4" style="margin: auto;">
         <div class="card h-100">
@@ -115,7 +115,8 @@
             }else{
                 echo '
                 <div class="carousel-item '.($active ? 'active' : '').'">
-
+                <form action="/" id="PollForm'.$row["pollid"].'">
+                <input type="hidden" name="pollId" value="'.$row["pollid"].'">
                 <div class="col-lg-12 mt-4" style="margin: auto;">
                 <div class="card h-100 mb-4">
                 <div class="card-body">
@@ -124,13 +125,14 @@
   
                 foreach (json_decode($row[1]) as &$optionstext) {            
                     echo '<div class="form-check">
-                        <input class="form-check-input" type="radio" name="pollRadios" id="pollRadios'.$j.'" value="option'.$j.'">
+                        <input class="form-check-input" type="radio" name="pollRadios" id="pollRadios'.$j.'" value="'.$j.'">
                         <label class="form-check-label" for="pollRadios'.$j.'">'.$optionstext.'</label>
                         </div> ';
                     $j++;
                 }
-                echo '<a href="#" class="btn btn-primary mt-2 float-right">Submit</a>';
-                
+                echo '<button class="btn btn-primary mt-2 float-right" type="submit" id="PollButton'.$row["pollid"].'">Submit</button>';
+                echo '<script>setPollSubmit('.$row["pollid"].');</script>';
+            
             }
             echo '      </div>
                     </div>

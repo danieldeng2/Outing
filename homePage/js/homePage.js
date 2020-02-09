@@ -24,7 +24,21 @@ function getCookie(cname) {
   }
   return "";
 }
-
+function setPollSubmit(id){
+  $( "#PollForm" +id).submit(
+    function( event ) {
+        event.preventDefault();
+    
+        $.post(
+            "admin/submitPoll.php",
+            $(this).serialize(),
+            function(data,status) {
+              $( "#PollForm" +id).html(data);
+            }
+            );
+      }
+    );
+}
 
 
 function loadEvents(data){
