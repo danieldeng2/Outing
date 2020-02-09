@@ -1,5 +1,3 @@
-#!/usr/bin/php
-
 <?php
 function db_connect() {
   static $connection;
