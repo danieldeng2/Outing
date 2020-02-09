@@ -21,7 +21,7 @@ function loadEvents(data){
     for (var i = 0; i < linesArray.length; i++) {
         var valsArray = linesArray[i].split(",");
         for (var j = 0; j < valsArray.length; j++) {
-            if (valsArray[1] == getCookie("username")) {
+            if (valsArray[1] == $_COOKIE("userid"))) {
                 $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
               } else {
                   $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
