@@ -6,7 +6,7 @@
  $messageTimePrepend='</p>';
  $messageTimeAppend='</span></div></div>';
 
-
+    @ob_end_clean();
     include("../../includes/dbconnect.php");
 
     $messages = pg_query($db, "SELECT *
