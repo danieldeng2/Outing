@@ -11,14 +11,10 @@ $("#messageBar").submit(
     event.preventDefault();
     $.post(
       "chat_functions/putMessages.php",
-      $(this).serialize(),
+      {message : $(this).serialize(), groupid : groupId},
       function(data, status) {alert("message submitted");}
     );
-    $.post(
-      "chat_functions/putMessages.php",
-       {groupid : groupId},
-       function(data, status) {alert("done");}
-    );
+
   }
 );
 
