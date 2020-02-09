@@ -5,7 +5,10 @@ var messageTimeAppend='</span></div></div>';
 var url = window.location.href;
 var idStart = url.indexOf("id=");
 var groupId = url.substring(idStart + 3, idStart + 4);
-var curTime = 0;
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
 
 $(document).ready(function(){
   setInterval(
@@ -32,12 +35,12 @@ if (data != undefined){
       for (var j = 0; j < valsArray.length; j++) {
           if (valsArray[1] === (getCookie("userid"))) {
               $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
-              curTime = Math.max(valsArray[2], curTime);
-              alert(valsArray[2]);
+              dateTime = Math.max(valsArray[2], dateTime);
+              alert(dateTime);
             } else {
                 $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
-                curTime = Math.max(valsArray[2], curTime);
-              alert(valsArray[2]);  
+                curTime = Math.max(valsArray[2], dateTime);
+              alert(dateTime);
             }
       }
   }
