@@ -11,6 +11,7 @@ $(document).ready(function(){
 
 alert("dfsd");
 
+$("#msg_history").append("<span> got added </span>");
 function loadEvents(data){
   if(data != undefined){
   $( "#rowId" ).append(data);}
