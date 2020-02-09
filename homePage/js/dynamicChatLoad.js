@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 function addMessageToChat(data) {
   alert("got into add message");
+  $("msg_history").append("<script>alert('asdfdsaf')</script>");
   $("msg_history").append(data);
 }
 
