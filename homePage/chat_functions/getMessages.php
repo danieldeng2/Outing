@@ -8,7 +8,7 @@
 
     @ob_end_clean();
     include("../../includes/dbconnect.php");
-    
+
     $messages = pg_query($db, "SELECT *
                                FROM messages
                                ORDER BY messages.time
@@ -19,12 +19,12 @@
     }
 
     while ($row = pg_fetch_assoc($messages)){
-      $content = $row['content'];
-      $entities = $row['entities'];
-      $writer = $row['writer'];
-      $group = $row['group'];
-      $time = $row['time'];
-      echo $row["content"] . "</br>";
+      // $content = $row['content'];
+      // $entities = $row['entities'];
+      // $writer = $row['writer'];
+      // $group = $row['group'];
+      // $time = $row['time'];
+      echo $row["content"] . $row["writer"] . $row["time"] . "</br>";
     }
 
       // $status = $writer === $writer;
