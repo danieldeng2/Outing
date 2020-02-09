@@ -20,3 +20,7 @@ function addMessageToChat(data) {
 function resetForm() {
   document.getElementById("#messageBar").reset();
 }
+
+function testMessageAdding(){
+  $("#msg_history").append("<span>adding works</span>");
+}
