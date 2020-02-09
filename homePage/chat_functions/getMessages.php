@@ -12,6 +12,8 @@
     $messages = pg_query($db, "SELECT *
                                FROM messages
                                WHERE groupId = '".$_POST["groupNo"]."'
+                               AND '".$_POST["maxTime"]"' <= ALL (SELECT time_messages
+                                                                  FROM messages AS time_messages;)                                                                 )
                                ORDER BY messages.time
                                LIMIT 5");
 

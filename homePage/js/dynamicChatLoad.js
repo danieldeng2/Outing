@@ -5,6 +5,7 @@ var messageTimeAppend='</span></div></div>';
 var url = window.location.href;
 var idStart = url.indexOf("id=");
 var groupId = url.substring(idStart + 3, idStart + 4);
+var curTime = 0;
 
 $(document).ready(function(){
   setInterval(
@@ -12,8 +13,7 @@ $(document).ready(function(){
 
     $.post(
       "chat_functions/getMessages.php",
-      { groupNo : groupId}
-      ,
+      { groupNo : groupId, maxTime : curTime},
       function(data,status) {loadEvents(data);}
       );
 
@@ -32,8 +32,10 @@ if (data != undefined){
       for (var j = 0; j < valsArray.length; j++) {
           if (valsArray[1] === (getCookie("userid"))) {
               $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
+              curTime = Math.max(valsArray[2], curTime);
             } else {
                 $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
+                curTime = Math.max(valsArray[2], curTime);
             }
       }
   }
