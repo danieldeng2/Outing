@@ -14,7 +14,9 @@
                                ORDER BY messages.time
                                LIMIT 10");
 
-
+    if (!$db) {
+      echo "query error";
+    }
     $row = pg_fetch_array($messages);
     foreach ($row as $rowValue) {
       // code...
