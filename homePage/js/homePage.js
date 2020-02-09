@@ -6,7 +6,7 @@ $(document).ready(function(){
 
   loadEvents();
 
-
+  alert("this works");
 });
 
 function getCookie(cname) {
