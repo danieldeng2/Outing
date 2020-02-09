@@ -13,11 +13,11 @@
                                FROM messages
                                WHERE groupId = '".$_POST["groupNo"]."'
                                AND content IS NOT NULL
-                               AND '".$_POST["maxDateTime"]."' < ALL (SELECT MAX (time)
-                                                                      FROM messages AS new_messages)
                                AND '".$_POST["minDateTime"]."' < messages.time
+                               AND '".$_POST["maxDateTime"]."' > messages.time
                                ORDER BY messages.time
                                LIMIT 5");
+
 
     if (!$db) {
       echo "query error";

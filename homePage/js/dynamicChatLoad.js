@@ -10,6 +10,7 @@ var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var minDateTime = date+' '+time;
 var maxDateTime = date+' '+time;
+var prevData;
 $(document).ready(function(){
   setInterval(
     function() {
@@ -27,21 +28,27 @@ $(document).ready(function(){
 
 
 function loadEvents(data){
-if (data != undefined){
-  var linesArray = data.split("</br>");
-  for (var i = 0; i < linesArray.length; i++) {
-      var valsArray = linesArray[i].split(",");
-      for (var j = 0; j < valsArray.length; j++) {
-          if (valsArray[1] === (getCookie("userid"))) {
-              $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
-                minDateTime = Math.min(valsArray[2].toDateString(), dateTime);
-                maxDateTime = Math.max(valsArray[2].toDateString(), dateTime);
-            } else {
-                $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
-                minDateTime = Math.min(valsArray[2].toDateString(), dateTime);
-                maxDateTime = Math.max(valsArray[2].toDateString(), dateTime);
-            }
-      }
+  if (prevData == null || prevData === data) {
+    return;
   }
-}
+
+  prevData = data;
+  
+  if (data != undefined){
+    var linesArray = data.split("</br>");
+    for (var i = 0; i < linesArray.length; i++) {
+        var valsArray = linesArray[i].split(",");
+        for (var j = 0; j < valsArray.length; j++) {
+            if (valsArray[1] === (getCookie("userid"))) {
+                $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
+                  minDateTime = Math.min(valsArray[2].toDateString(), dateTime);
+                  maxDateTime = Math.max(valsArray[2].toDateString(), dateTime);
+              } else {
+                  $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
+                  minDateTime = Math.min(valsArray[2].toDateString(), dateTime);
+                  maxDateTime = Math.max(valsArray[2].toDateString(), dateTime);
+              }
+        }
+    }
+  }
 }
