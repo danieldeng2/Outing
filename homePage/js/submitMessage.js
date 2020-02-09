@@ -6,10 +6,12 @@ $(document).ready(function(){
 
 });
 
+var messageContent = document.getElementById("messageContent").value;
+
 $("#messageBar").submit(
-  function (event) {
+  function ( event ) {
+    event.preventDefault();
     alert("success");
-    // event.preventDefault();
     // $.post(
     //   "chat_functions/putMessages.php",
     //   {message : $(this).serialize(), groupid : groupId},
