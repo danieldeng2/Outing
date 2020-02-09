@@ -21,7 +21,7 @@ function loadEvents(data){
     for (var i = 0; i < linesArray.length; i++) {
       var valsArray = linesArray[i].split(",");
       for (var j = 0; j < valsArray.length; j++) {
-        $("#msg_history").append("<span>" + i+j + "</span>");
+        $("#msg_history").append("<span>" + valsArray[j] + "</span> <br>");
       }
     }
   }
