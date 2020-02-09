@@ -12,22 +12,21 @@
     $messages = pg_query($db, "SELECT *
                                FROM messages
                                ORDER BY messages.time
-                               LIMIT 10");
+                               LIMIT 5");
 
     if (!$db) {
       echo "query error";
     }
-    $row = pg_fetch_array($messages);
-    foreach ($row as $rowValue) {
-      // code...
-      $content = $rowValue['content'];
-      $entities = $rowValue['entities'];
-      $writer = $rowValue['writer'];
-      $group = $rowValue['group'];
-      $time = $rowValue['time'];
-
-      echo "string";
+    
+    while ($row = pg_fetch_assoc($messages)){
+      $content = $row['content'];
+      $entities = $row['entities'];
+      $writer = $row['writer'];
+      $group = $row['group'];
+      $time = $row['time'];
+      echo $row["content"] . "</br>";
     }
+
       // $status = $writer === $writer;
 
       // if ($writer == $writer) {
