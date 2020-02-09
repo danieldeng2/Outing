@@ -1,17 +1,18 @@
 #!/usr/bin/php
 
 <?php
-function recommend($recommend, $groupID)
+function recommend($recommend, $groupID, $db)
 {
-    include __DIR__ . "../../includes/dbconnect.php";
-    $locations = strtolower($recommend->LOCATION);
+    $locations = strtolower($recommend);
     $location_arr = explode(",", $locations);
-    if (empty($location)) {
+    if (empty($location_arr)) {
+        echo "empty";
         return;
     }
 
     foreach ($location_arr as $location) {
-        $query = "INSERT INTO recommends (location, groupid) VALUES('$location', $groupID)";
+        echo $location;
+        $query = "INSERT INTO recommend (location, groupid) VALUES('$location', $groupID)";
         $result = pg_query($db, $query);
         if (!$result) {
             echo "Error inserting location!";

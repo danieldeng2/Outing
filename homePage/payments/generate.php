@@ -1,8 +1,7 @@
 #!/usr/bin/php
 
 <?php
-function generate($generate, $groupID) {
-    include __DIR__ . "../../includes/dbconnect.php";
+function generate($generate, $groupID, $db) {
     $people = strtolower($generate->PERSON);
     $price_str = $generate->PRICE;
     $receiver = $_COOKIE["userid"];
@@ -22,8 +21,8 @@ function generate($generate, $groupID) {
         $member_num = sizeof($member_arr);
         $price_each = intdiv($price, $member_num);
 
-        foreach ($members as $member) {
-            $query = "INSERT INTO payments (INSERT INTO payments (senderid, receiverid, amount, groupid, iscomplete)
+        foreach ($member_arr as $member) {
+            $query = "INSERT INTO payments (senderid, receiverid, amount, groupid, iscomplete)
                 VALUES($member, $receiver, $price_each, $groupID, FALSE)";
             $result = pg_query($db, $query);
             if (!$result) {

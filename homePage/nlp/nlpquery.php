@@ -17,7 +17,7 @@ function nlpquery($argument)
     }
 
     $command = "python3 /home/sitorusezra/googlecloud/natlang/natlang.py ";
-    $nlp = $ssh->exec($command . $argument);
+    $nlp = json_decode($ssh->exec($command . "'$argument'"));
     return $nlp;
 }
 ?>

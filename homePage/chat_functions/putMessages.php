@@ -1,6 +1,7 @@
 #!/usr/bin/php
 <?php
   include "../../includes/dbconnect.php";
+  include "../nlp/analyse.php";
 
   $content = pg_escape_string($db, filter_var($_POST["message"], FILTER_SANITIZE_STRING));
   $writer = $_COOKIE["userid"];
@@ -11,6 +12,8 @@
 
   if (!($result)) {
     echo "Error in saving the message to the database!";
+  } else {
+    analyse($content, $groupid, $db);
   }
 
 ?>
