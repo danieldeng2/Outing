@@ -18,16 +18,11 @@ $(document).ready(function(){
 function loadEvents(data){
   if (data != undefined){
     var linesArray = data.split("<br>");
-    linesArray.forEach(valuesArray);
-  }
-}
-
-function valuesArray(valArray) {
-  var arr = valArray.split(",");
-  if (arr[1] == arr[1]) {
-    alert(arr[0]);
-    $("#msg_history").append(incomingMessagePrepend + data + messageTimePrepend + arr[2] + messageTimeAppend);
-  } else {
-    $("#msg_history").append(outgoing_msgMessagePrepend + data + messageTimePrepend + arr[2] + messageTimeAppend);
+    for (var i = 0; i < linesArray.length; i++) {
+      var valsArray = linesArray[i].split(",");
+      for (var j = 0; j < valsArray.length; j++) {
+        $("#msg_history").append("<span>" + i+j + "</span>");
+      }
+    }
   }
 }
