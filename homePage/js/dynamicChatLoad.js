@@ -3,6 +3,7 @@ $(document).ready(function(){
     "chat_functions/getMessages.php",
     function(data,status) {addMessageToChat(data);}
 
+    testMessageAdding();
     addMessageToChat();
   );
 });
