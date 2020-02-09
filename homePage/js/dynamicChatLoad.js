@@ -8,6 +8,7 @@ $(document).ready(function(){
   );
 });
 
+  alert("fdsa");
 function addMessageToChat(data) {
   if(data == undefined){
     alert("got into undefined message");
