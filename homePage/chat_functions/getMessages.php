@@ -12,7 +12,6 @@
     $messages = pg_query($db, "SELECT *
                                FROM messages
                                WHERE groupId = '".$_POST["groupNo"]."'
-                               AND '".$_POST["curtime"]"' > messages.time
                                ORDER BY messages.time
                                LIMIT 5");
 

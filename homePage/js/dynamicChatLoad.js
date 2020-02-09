@@ -20,9 +20,8 @@ $(document).ready(function(){
       function(data,status) {loadEvents(data);}
       );
 
-    loadEvents();
 
-  }, 5000);
+  }, 3000);
 
 });
 
