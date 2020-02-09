@@ -55,6 +55,9 @@
       <a class="navbar-brand" data-toggle="modal" data-target="#signUpModalCenter">
         <img src="icons/account_circle-24px.svg" width="36" height="36" alt="My Info">
       </a>
+      <a class="navbar-brand" data-toggle="modal" data-target="#signInModalCenter">
+        <img src="icons/account_circle-24px.svg" width="36" height="36" alt="My Info">
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -333,109 +336,146 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-primary">Join</button>
         </div>
-
+        
       </div>
     </div>
   </div>
 
   <!-- New Event Modal -->
   <div class="modal fade" id="newModalCenter" tabindex="-1" role="dialog" aria-labelledby="newModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="newModalCenterTitle">New Event</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Event Name">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <form action="/" id="newEventForm">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newModalCenterTitle">New Event</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+          <div class="modal-body">
 
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Destination">
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Time</span>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="eventName" placeholder="Event Name">
             </div>
-            <input type="datetime-local" class="form-control">
+            
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="eventDestination" placeholder="Destination">
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Time</span>
+              </div>
+              <input type="datetime-local" class="form-control" name="eventTime">
+            </div>
+            
+            <div class="input-group">
+              <textarea class="form-control" aria-label="description" name="eventDescription" placeholder="Description"></textarea>
+            </div>
+
           </div>
-
-          <div class="input-group">
-            <textarea class="form-control" aria-label="description" placeholder="Description"></textarea>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Create</button>
           </div>
-
+        </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Create</button>
-        </div>
-
       </div>
-    </div>
   </div>
 
   <!-- SignUp Modal -->
   <div class="modal fade" id="signUpModalCenter" tabindex="-1" role="dialog" aria-labelledby="signUpModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="signUpModalCenterTitle">Sign Up</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Username</span>
-            </div>
-            <input type="text" class="form-control" placeholder="required">
+        <form action="/" id="signUpForm">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signUpModalCenterTitle">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+          <div class="modal-body">
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Password</span>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Username</span>
+              </div>
+              <input type="text" class="form-control" name="signUpUserName" placeholder="required">
             </div>
-            <input type="password" class="form-control" placeholder="required">
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Email</span>
+            
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Password</span>
+              </div>
+              <input type="password" class="form-control" name="signUpPassword" placeholder="required">
             </div>
-            <input type="text" class="form-control" placeholder="Optional">
-          </div>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Bank Account</span>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+              </div>
+              <input type="text" class="form-control" name="signUpEmail" placeholder="Optional">
             </div>
-            <input type="text" class="form-control" placeholder="Optional">
-          </div>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Sort Code</span>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Bank Account</span>
+              </div>
+              <input type="text" class="form-control" name="signUpBankAccount" placeholder="Optional">
             </div>
-            <input type="text" class="form-control" placeholder="Optional">
-          </div>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Payment Link</span>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Sort Code</span>
+              </div>
+              <input type="text" class="form-control" name="signUpSortCode" placeholder="Optional">
             </div>
-            <input type="url" class="form-control" placeholder="Optional">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Sign Up</button>
-        </div>
 
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Payment Link</span>
+              </div>
+              <input type="url" class="form-control" name="signUpPayment" placeholder="Optional">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- SignIn Modal -->
+  <div class="modal fade" id="signInModalCenter" tabindex="-1" role="dialog" aria-labelledby="signInModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <form action="/" id="signInForm">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signInModalCenterTitle">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Username</span>
+              </div>
+              <input type="text" class="form-control" name="signInUserName" placeholder="required">
+            </div>
+            
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Password</span>
+              </div>
+              <input type="password" class="form-control" name="signInPassword" placeholder="required">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Sign In</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -458,7 +498,7 @@
             </div>
             <input type="text" class="form-control" placeholder="required">
           </div>
-
+          
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Option 1</span>
@@ -487,13 +527,13 @@
             <input type="text" class="form-control" placeholder="Optional">
           </div>
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Create</button>
-          </div>
-
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Create</button>
         </div>
+        
       </div>
     </div>
+  </div>
 
 
     <!-- Bootstrap core JavaScript -->
