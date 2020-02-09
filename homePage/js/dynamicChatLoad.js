@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $.post(
-    "admin/loadEvents.php",
+    "chat_functions/getMessages.php",
     function(data,status) {loadEvents(data);}
     );
 
