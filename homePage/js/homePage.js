@@ -75,7 +75,7 @@ $( "#newEventForm" ).submit(
       $.post(
           "admin/newEvent.php",
           $(this).serialize(),
-          function(data,status) {alert(status);}
+          function(data,status) {alert(data);}
           );
     }
   );
