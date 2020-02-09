@@ -5,15 +5,16 @@
   var url = window.location.href;
   var idStart = url.indexOf("id=");
   var groupId = url.substring(idStart + 3, idStart + 4);
+  var toDiscard = 0;
 
 $(document).ready(function(){
   setInterval(function() {
     $.post(
       "chat_functions/getMessages.php",
-      { groupNo : groupId },
+      { groupNo : groupId, discard : toDiscard},
       function(data,status) {loadEvents(data);}
     );
-
+    toDiscard += 5;
     loadEvents();
   }, 1000);
 
