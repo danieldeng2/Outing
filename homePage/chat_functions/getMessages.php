@@ -14,8 +14,8 @@
                                ORDER BY messages.time
                                LIMIT 10");
 
-                               echo "adf";
-    while ($row = pg_fetch_assoc($messages)) {
+
+    while ($row = pg_fetch_array($messages)) {
       $content = $row['content'];
       $entities = $row['entities'];
       $writer = $row['writer'];
