@@ -19,8 +19,11 @@ function loadEvents(data){
   if (data != undefined){
     var linesArray = data.split("<br>");
     for (var i = 0; i < linesArray.length; i++) {
-      $("#msg_history").append(incomingMessagePrepend + linesArray[i] + messageTimePrepend + messageTimeAppend);
-    //   var valsArray = linesArray[i].split(",");
+        var valsArray = linesArray[i].split(",");
+        for (var j = 0; j < valsArray.length; j++) {
+          // $("#msg_history").append(incomingMessagePrepend + linesArray[i] + messageTimePrepend + messageTimeAppend);
+          $("#msg_history").append(vals[j]);
+        }
     //   alert(i);
     //   if (true) {
     //     $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
