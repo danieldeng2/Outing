@@ -9,14 +9,14 @@
   var toDiscard = 0;
 
 $(document).ready(function(){
-  setInterval(function() {
+  // setInterval(function() {
     $.post(
       "chat_functions/getMessages.php",
       { groupNo : groupId},
       function(data,status) {loadEvents(data);}
     );
     loadEvents();
-  }, 5000);
+  // }, 5000);
 
 });
 
