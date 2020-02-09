@@ -20,6 +20,7 @@ function loadEvents(data){
     var linesArray = data.split("<br>");
     for (var i = 0; i < linesArray.length; i++) {
       var valsArray = linesArray[i].split(",");
+      alert(i);
       if (true) {
         $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
       } else {
