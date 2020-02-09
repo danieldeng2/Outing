@@ -8,12 +8,13 @@ $(document).ready(function(){
 
 $("#messageBar").submit(
   function (event) {
-    event.preventDefault();
-    $.post(
-      "chat_functions/putMessages.php",
-      {message : $(this).serialize(), groupid : groupId},
-      function(data, status) {alert("message submitted");}
-    );
+    alert("success");
+    // event.preventDefault();
+    // $.post(
+    //   "chat_functions/putMessages.php",
+    //   {message : $(this).serialize(), groupid : groupId},
+    //   function(data, status) {alert("message submitted");}
+    // );
 
   }
 );
