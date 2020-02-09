@@ -15,14 +15,17 @@
                                LIMIT 10");
 
 
-    while ($row = pg_fetch_array($messages)) {
-      $content = $row['content'];
-      $entities = $row['entities'];
-      $writer = $row['writer'];
-      $group = $row['group'];
-      $time = $row['time'];
+    $row = pg_fetch_array($messages);
+    foreach ($row as $rowValue) {
+      // code...
+      $content = $rowValue['content'];
+      $entities = $rowValue['entities'];
+      $writer = $rowValue['writer'];
+      $group = $rowValue['group'];
+      $time = $rowValue['time'];
 
       echo "string";
+    }
       // $status = $writer === $writer;
 
       // if ($writer == $writer) {
@@ -30,7 +33,7 @@
         // echo $time . $messageAppend;
         // } else {
         // echo $outgoingMessagePrepend . $content . $messageAppend;
-    }
+
 
     $db.pg_close();
 
