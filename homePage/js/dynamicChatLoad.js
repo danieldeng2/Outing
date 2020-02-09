@@ -18,6 +18,17 @@ alert("dfsd");
 
 
 function loadEvents(data){
-  if(data != undefined){
-  $( "#msg_history" ).append(incomingMessagePrepend + data + messageTimePrepend);}
+  if (data != undefined){
+    var linesArray = data.split("<br>");
+    linesArray.forEach(valuesArray);
+  }
+}
+
+function valuesArray(valArray) {
+  var arr = valArray.split(",");
+  if (arr[1] == arr[1]) {
+    $( "#msg_history" ).append(incomingMessagePrepend + data + messageTimePrepend + arr[2] + messageTimeAppend);
+  } else {
+    $( "#msg_history" ).append(outgoing_msgMessagePrepend + data + messageTimePrepend + arr[2] + messageTimeAppend);
+  }
 }
