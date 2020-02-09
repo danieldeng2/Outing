@@ -2,8 +2,13 @@
 <?php
     @ob_end_clean();
     include("../../includes/dbconnect.php");
+    if (!isset($_COOKIE["userid"])){echo "Please log in. ";}
     $result = pg_query($db, "SELECT * FROM groups");
-    echo $_COOKIE["userid"];
+    // echo $_COOKIE["userid"];
+    // echo $_COOKIE["username"];
+
+
+
     while (($row = pg_fetch_assoc($result))) {
         $eventId = $row['groupid'];
         $eventName = $row['name'];
@@ -15,23 +20,29 @@
         $createdTime = $row['createdate'];
         $membersConfirm = $row['membersconfirmed'];
 
-        switch ($eventStatus) {
-            case 0:
-                loadPlanning($eventId, $eventName, $eventDescription);
-                break;
-            case 1:
-                loadPolling($db, $eventId, $eventName); 
-                break;
-            case 2:
-                loadPlanned($eventId, $eventName, $eventTime, $eventDestination);
-                break;
-            case 3:
-                loadStarting($eventId, $eventName, $eventTime, $eventDestination);
-                break;
-            case 4:
-                loadCompleted($db, $eventId, $eventName);
-                break;
+        $members = preg_split ("/\,/", $eventMembers);  
+        if (isset($_COOKIE["userid"])){
+            if(in_array($_COOKIE["userid"], $members)){
+                switch ($eventStatus) {
+                    case 0:
+                        loadPlanning($eventId, $eventName, $eventDescription);
+                        break;
+                    case 1:
+                        loadPolling($db, $eventId, $eventName); 
+                        break;
+                    case 2:
+                        loadPlanned($eventId, $eventName, $eventTime, $eventDestination);
+                        break;
+                    case 3:
+                        loadStarting($eventId, $eventName, $eventTime, $eventDestination);
+                        break;
+                    case 4:
+                        loadCompleted($db, $eventId, $eventName);
+                        break;
+                };
+            }
         }
+       
 
     }
 
@@ -59,7 +70,7 @@
     }
 
     function loadPolling($db, $eventId, $eventName){
-        $polling = pg_query($db, "SELECT polltitle, array_to_json(optionstext)  FROM polls WHERE groupId=$eventId AND isactive=TRUE");
+        $polling = pg_query($db, "SELECT polltitle, array_to_json(optionstext),array_to_json(voteduser),array_to_json(optionsresult)  FROM polls WHERE groupId=$eventId AND isactive=TRUE");
         echo '
         <div class="col-lg-8 mt-4" style="margin: auto;">
         <div class="card h-100">
@@ -80,42 +91,63 @@
         <div class="carousel-inner">';
 
         $active = TRUE;
+        $j = 0;
         while (($row = pg_fetch_array($polling))) {
             // pollid groupid isactive duetime optionsdate optionstext optionsresult voteduser
-            echo '
-            <div class="carousel-item '.($active ? 'active' : '').'">
+            if (in_array($_COOKIE["userid"],json_decode($row[2]))){
+                echo '<div class="carousel-item '.($active ? 'active' : '').'">
 
-            <div class="col-lg-12 mt-4" style="margin: auto;">
-              <div class="card h-100 mb-4">
-              <div class="card-body">
-              <h4 class="d-inline-block card-title">'.$row["polltitle"].'</h4>';
-            
-            $j = 0;
-            foreach (json_decode($row[1]) as &$optionstext) {            
-                echo '<div class="form-check">
-                    <input class="form-check-input" type="radio" name="pollRadios" id="pollRadios'.$j.'" value="option'.$j.'">
-                    <label class="form-check-label" for="pollRadios'.$j.'">'.$optionstext.'</label>
-                    </div> ';
-                $j++;
+                <div class="col-lg-12 mt-4" style="margin: auto;">
+                  <div class="card h-100 mb-4">
+                    <div class="card-body">
+                      <h4 class="card-title">'.$row["polltitle"].'</h4>';
+
+                      $totalvote = array_sum(json_decode($row[3]));
+                      
+                      foreach (json_decode($row[1]) as &$optionstext) {       
+                          $voteNum = (int) json_decode($row[3])[$j];     
+                          echo '<h6 class="card-subtitle text-muted">'.$optionstext.'</h6>
+                          <div class="progress mb-3 mt-1" >
+                            <div class="progress-bar" role="progressbar" style="width:'.((int) $voteNum/$totalvote*100).'%" aria-valuenow="'.$voteNum.'" aria-valuemin="0" aria-valuemax="'.$totalvote.'"></div>
+                          </div> ';
+                          $j++;
+                      };
+            }else{
+                echo '
+                <div class="carousel-item '.($active ? 'active' : '').'">
+
+                <div class="col-lg-12 mt-4" style="margin: auto;">
+                <div class="card h-100 mb-4">
+                <div class="card-body">
+                <h4 class="d-inline-block card-title">'.$row["polltitle"].'</h4>';
+                
+  
+                foreach (json_decode($row[1]) as &$optionstext) {            
+                    echo '<div class="form-check">
+                        <input class="form-check-input" type="radio" name="pollRadios" id="pollRadios'.$j.'" value="option'.$j.'">
+                        <label class="form-check-label" for="pollRadios'.$j.'">'.$optionstext.'</label>
+                        </div> ';
+                    $j++;
+                }
+                echo '<a href="#" class="btn btn-primary mt-2 float-right">Submit</a>';
+                
             }
-            echo '                    
-              <a href="#" class="btn btn-primary mt-2 float-right">Submit</a>
+            echo '      </div>
                     </div>
-                    </div>
-                    </div>
-
+                </div>
                 </div>';
+
             $active = FALSE;
         }
 
-        echo '</div> </div>
-                <a href="chat.html?id='.$eventId.'" class="btn btn-primary">
-                <img src="icons/chat-24px.svg" width="20" height="20" alt="New">
-                Chat
-                </a>
-            </div>
-            </div>
-        </div>';
+            echo '</div> </div>
+                    <a href="chat.html?id='.$eventId.'" class="btn btn-primary">
+                    <img src="icons/chat-24px.svg" width="20" height="20" alt="New">
+                    Chat
+                    </a>
+                </div>
+                </div>
+            </div>';
 
     }
     
