@@ -66,12 +66,12 @@
         echo '
         <div class="col-lg-12 mt-4" style="margin: auto;">
           <div>
-            <h5 class="d-inline-block" style="color:blue;">
+            <h5 class="d-inline-block" style="color:#0080ff;">
               <img src="icons/poll-icon.png" width="20" height="20"> <a data-toggle="modal" data-target="#newPollModalCenter">Poll +</a>
             </h5>
           </div>
         ';
-        $j = 0;
+       
         while (($row = pg_fetch_array($polling))) {
             if (in_array($_COOKIE["userid"],json_decode($row[2]))){
                 echo '
@@ -82,12 +82,12 @@
                       <h4 class="card-title">'.$row["polltitle"].'</h4>';
 
                       $totalvote = array_sum(json_decode($row[3]));
-                      
+                      $j = 0;
                       foreach (json_decode($row[1]) as &$optionstext) {       
                           $voteNum = (int) json_decode($row[3])[$j];     
                           echo '<h6 class="card-subtitle text-muted">'.$optionstext.'</h6>
                           <div class="progress mb-3 mt-1" >
-                            <div class="progress-bar" role="progressbar" style="width:'.((int) $voteNum/$totalvote*100).'%" aria-valuenow="'.$voteNum.'" aria-valuemin="0" aria-valuemax="'.$totalvote.'"></div>
+                            <div class="progress-bar" role="progressbar" style="width:'.((int) $voteNum/($totalvote+1)*100).'%" aria-valuenow="'.$voteNum.'" aria-valuemin="0" aria-valuemax="'.$totalvote.'"></div>
                           </div> ';
                           $j++;
                       };
@@ -101,7 +101,7 @@
                 <div class="card-body">
                 <h4 class="d-inline-block card-title">'.$row["polltitle"].'</h4>';
                 
-  
+                $j = 0;
                 foreach (json_decode($row[1]) as &$optionstext) {            
                     echo '<div class="form-check">
                         <input class="form-check-input" type="radio" name="pollRadios" id="pollRadios'.$j.'" value="'.$j.'">
