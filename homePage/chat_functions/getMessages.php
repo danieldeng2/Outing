@@ -11,7 +11,7 @@
 
     $messages = pg_query($db, "SELECT *
                                FROM messages
-                               WHERE groupId == ($_GET["groupNo"])
+                               WHERE groupId = '$_GET["groupNo"]'
                                ORDER BY messages.time
                                LIMIT 5");
 
