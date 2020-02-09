@@ -21,11 +21,12 @@
       $group = $row['group'];
       $time = $row['time'];
 
+      echo "string";
       // $status = $writer === $writer;
 
       // if ($writer == $writer) {
-        echo $incomingMessagePrepend . $content . $messageTimePrepend;
-        echo $time . $messageAppend;
+        // echo $incomingMessagePrepend . $content . $messageTimePrepend;
+        // echo $time . $messageAppend;
         // } else {
         // echo $outgoingMessagePrepend . $content . $messageAppend;
     }

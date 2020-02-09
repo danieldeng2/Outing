@@ -1,12 +1,5 @@
 $(document).ready(function(){
   $.post(
-    "admin/loadEvents.php",
-    function(data,status) {loadEvents(data);}
-    );
-
-  loadEvents();
-
-  $.post(
     "chat_functions/getMessages.php",
     function(data,status) {addMessageToChat(data);}
   );
@@ -15,11 +8,6 @@ $(document).ready(function(){
 
 function addMessageToChat(data) {
   $("msg_history").load(data);
-}
-
-function loadEvents(data){
-  if(data != undefined){
-  $( "#rowId" ).append(data);}
 }
 
 function resetForm() {
