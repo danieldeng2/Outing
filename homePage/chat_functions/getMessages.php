@@ -8,10 +8,12 @@
 
     @ob_end_clean();
     include("../../includes/dbconnect.php");
-
+    
     $messages = pg_query($db, "SELECT *
                                FROM messages
-                               WHERE groupId == ($_GET["groupNo"])
+
+                               WHERE groupId = '".$_POST["groupNo"]."'
+
                                ORDER BY messages.time
                                LIMIT 5");
 
