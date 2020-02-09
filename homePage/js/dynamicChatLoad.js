@@ -7,32 +7,17 @@
   var groupId = url.substring(idStart + 3, idStart + 4);
 
 $(document).ready(function(){
-  
-  $.post(
-    "chat_functions/getMessages.php",
-    { groupNo : groupId}
-    ,
-    function(data,status) {loadEvents(data);}
-    );
-
+  var text = $('#messageBar').val();  
+  $(".msg_send_btn").click(function() {
+    $("#messageBar").submit(function() {
+        $.post(
+          "chat_functions/putMessages.php",
+          { message : text, groupNo : groupId},
+          function(data, status) {alert("message sent");}
+        );
+    });
+  });
   loadEvents();
 
 
 });
-
-
-function loadEvents(data){
-  if (data != undefined){
-    var linesArray = data.split("</br>");
-    for (var i = 0; i < linesArray.length; i++) {
-        var valsArray = linesArray[i].split(",");
-        for (var j = 0; j < valsArray.length; j++) {
-            // if (valsArray[1] == ("userid")) {
-                $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
-              // } else {
-              //     $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
-              // }
-        }
-    }
-  }
-}
