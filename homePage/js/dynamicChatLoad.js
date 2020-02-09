@@ -33,12 +33,13 @@ if (data != undefined){
           if (valsArray[1] === (getCookie("userid"))) {
               $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
               curTime = Math.max(valsArray[2], curTime);
+              alert(valsArray[2]);
             } else {
                 $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
                 curTime = Math.max(valsArray[2], curTime);
+              alert(valsArray[2]);  
             }
       }
-      alert(curTime);
   }
 }
 }
