@@ -1,6 +1,35 @@
-$(document).ready(function(){
+var url = window.location.href;
+var idStart = url.indexOf("id=");
+var groupId = url.substring(idStart + 3, idStart + 4);
 
+$(document).ready(function(){
+  $.post(
+    "admin/loadRightColumn.php",
+    {groupNo:groupId},
+    function(data,status) {loadRightColumn(data);}
+    );
 });
+
+function loadRightColumn(data){
+  if(data != undefined){
+    $( "#rightColumn" ).append(data);}
+}
+
+function setPollSubmit(id){
+  $( "#PollForm" +id).submit(
+    function( event ) {
+        event.preventDefault();
+    
+        $.post(
+            "admin/submitPoll.php",
+            $(this).serialize(),
+            function(data,status) {
+              $( "#PollForm" +id).html(data);
+            }
+            );
+      }
+    );
+}
 
 function getCookie(cname) {
   var name = cname + "=";
@@ -17,3 +46,37 @@ function getCookie(cname) {
   }
   return "";
 }
+
+$( "#signUpForm" ).submit(
+  function( event ) {
+      event.preventDefault();
+  
+      $.post(
+          "admin/signUp.php",
+          $(this).serialize(),
+          function(data,status) {alert(data);}
+          );
+    }
+  );
+  
+  $( "#signInForm" ).submit(
+    function( event ) {
+        event.preventDefault();
+        $.post(
+            "admin/signIn.php",
+            $(this).serialize(),
+            function(data,status) {alert(data);}
+            );
+      }
+    );
+  
+  $( "#newEventForm" ).submit(
+    function( event ) {
+        event.preventDefault();
+        $.post(
+            "admin/newEvent.php",
+            $(this).serialize(),
+            function(data,status) {alert(status);}
+            );
+      }
+    );

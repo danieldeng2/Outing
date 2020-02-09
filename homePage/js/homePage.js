@@ -4,7 +4,7 @@ $(document).ready(function(){
     function(data,status) {loadEvents(data);}
     );
 
-  loadEvents();
+  // loadEvents();
 
 
 });
