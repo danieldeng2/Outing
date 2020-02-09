@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 function loadEvents(data){
   if (data != undefined){
-    var linesArray = data.split("<br>");
+    var linesArray = data.split("</br>");
     for (var i = 0; i < linesArray.length; i++) {
         var valsArray = linesArray[i].split(",");
         alert(valsArray);
