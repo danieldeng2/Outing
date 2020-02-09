@@ -22,7 +22,7 @@ function loadEvents(data){
         var valsArray = linesArray[i].split(",");
         for (var j = 0; j < valsArray.length; j++) {
           // $("#msg_history").append(incomingMessagePrepend + linesArray[i] + messageTimePrepend + messageTimeAppend);
-          $("#msg_history").append(vals[j]);
+          $("#msg_history").append(valsArray[j]);
         }
     //   alert(i);
     //   if (true) {
