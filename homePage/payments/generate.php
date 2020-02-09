@@ -14,7 +14,7 @@ function generate($generate, $groupID) {
     }
 
     if ($people == 'everyone') {
-        $query = "SELECT members FROM groups WHERE groupid ='$groupID'";
+        $query = "SELECT members FROM groups WHERE groupid =$groupID";
         $result = pg_query($db, $query);
         $row = pg_fetch_assoc($result);
         $members = $row["members"];
@@ -24,7 +24,7 @@ function generate($generate, $groupID) {
 
         foreach ($members as $member) {
             $query = "INSERT INTO payments (INSERT INTO payments (senderid, receiverid, amount, groupid, iscomplete)
-                VALUES('$member', '$receiver', '$price_each', '$groupID', FALSE)";
+                VALUES($member, $receiver, $price_each, $groupID, FALSE)";
             $result = pg_query($db, $query);
             if (!$result) {
                 echo "Database insert error!";
@@ -33,7 +33,7 @@ function generate($generate, $groupID) {
     } else {
         $members = explode(",", $people);
         foreach ($members as $member) {
-            $query = "SELECT userid FROM users WHERE username='$member'";
+            $query = "SELECT userid FROM users WHERE username=$member";
             $result = pg_query($db, $query);
             $row = pg_fetch_assoc($result);
             $memberid[] = $row["userid"];
@@ -49,7 +49,7 @@ function generate($generate, $groupID) {
 
         foreach ($memberid as $senderid) {
             $query = "INSERT INTO payments (INSERT INTO payments (senderid, receiverid, amount, groupid, iscomplete)
-            VALUES('$senderid', '$receiver', '$price_each', '$groupID', FALSE)";
+            VALUES($senderid, $receiver, $price_each, $groupID, FALSE)";
             $result = pg_query($db, $query);
             if (!$result) {
                 echo "Database insert error2!";
