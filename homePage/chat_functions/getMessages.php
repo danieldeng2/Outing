@@ -10,7 +10,7 @@
     include("../../includes/dbconnect.php");
 
     $messages = pg_query($db, "SELECT *
-                               FROM 
+                               FROM messages
                                WHERE groupId = '".$_POST["groupNo"]."'
                                ORDER BY messages.time
                                LIMIT 5");
