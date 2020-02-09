@@ -24,7 +24,7 @@
       // $writer = $row['writer'];
       // $group = $row['group'];
       // $time = $row['time'];
-      echo $row["content"] . $row["writer"] . $row["time"] . "</br>";
+      echo $row["content"] . "," . $row["writer"] . "," . $row["time"] . "</br>";
     }
 
       // $status = $writer === $writer;
