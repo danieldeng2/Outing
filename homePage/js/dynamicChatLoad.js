@@ -31,6 +31,7 @@ function loadEvents(data){
 if (data != undefined){
   var linesArray = data.split("</br>");
   for (var i = 0; i < linesArray.length; i++) {
+    alert(dateTime);
       var valsArray = linesArray[i].split(",");
       for (var j = 0; j < valsArray.length; j++) {
           if (valsArray[1] === (getCookie("userid"))) {
@@ -38,7 +39,7 @@ if (data != undefined){
               dateTime = Math.min(valsArray[2], dateTime);
             } else {
                 $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
-                curTime = Math.min(valsArray[2], dateTime);
+                dateTime = Math.min(valsArray[2], dateTime);
             }
       }
   }
