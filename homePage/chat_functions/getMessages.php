@@ -11,10 +11,10 @@
 
     $messages = pg_query($db, "SELECT *
                                FROM messages
-                               WHERE groupId = '".$_POST["groupNo"]."'
+                               WHERE groupid = '".$_POST["groupNo"]."'
                                AND content IS NOT NULL
                                ORDER BY messages.time
-                               LIMIT 1");
+                               LIMIT 5");
 
 
     if (!$db) {
