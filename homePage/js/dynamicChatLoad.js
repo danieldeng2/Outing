@@ -7,15 +7,14 @@
   var groupId = url.substring(idStart + 3, idStart + 4);
 
 $(document).ready(function(){
-  $(".msg_send_btn").click(function() {
-    $("#messageBar").submit(function() {
-        $.post(
-          "chat_functions/putMessages.php",
-          { message : , groupNo : groupId},
-          function(data, status) {alert("message sent");}
-        );
-    });
-  });
+  
+  $.post(
+    "chat_functions/getMessages.php",
+    { groupNo : groupId}
+    ,
+    function(data,status) {loadEvents(data);}
+    );
+
   loadEvents();
 
 
