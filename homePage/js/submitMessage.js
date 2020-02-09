@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 });
 
-$("messageBar").submit(
+$("#messageBar").submit(
   function (event) {
     event.preventDefault();
     $.post(
@@ -16,3 +16,7 @@ $("messageBar").submit(
     );
   }
 );
+
+function resetField() {
+  document.getElementById("messageBar").reset();
+}
