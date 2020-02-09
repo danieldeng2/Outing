@@ -6,8 +6,11 @@ $(document).ready(function(){
   alert("fdsf");
 });
 
+alert("got out of first");
+
 function addMessageToChat(data) {
   $("msg_history").load(data);
+  alert("loaded Msg");
 }
 
 function resetForm() {
