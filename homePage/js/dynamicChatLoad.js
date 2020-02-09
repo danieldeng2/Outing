@@ -1,28 +1,51 @@
 $(document).ready(function(){
   $.post(
-    "chat_functions/getMessages.php",
-    function(data,status) {addMessageToChat(data);}
+    "admin/loadEvents.php",
+    function(data,status) {loadEvents(data);}
+    );
 
-    testMessageAdding();
-    addMessageToChat();
-  );
+  loadEvents();
+
+
 });
 
-  alert("fdsa");
-function addMessageToChat(data) {
-  if(data == undefined){
-    alert("got into undefined message");
-  } else {
-    alert("got here");
-    $("#msg_history").append("<script>alert('asdfdsaf')</script>");
-    $("#msg_history").append(data);
+alert("dfsd");
+
+function loadEvents(data){
+  if(data != undefined){
+  $( "#rowId" ).append(data);}
+}
+
+$( "#signUpForm" ).submit(
+function( event ) {
+    event.preventDefault();
+
+    $.post(
+        "admin/signUp.php",
+        $(this).serialize(),
+        function(data,status) {alert(data);}
+        );
   }
-}
+);
 
-function resetForm() {
-  document.getElementById("#messageBar").reset();
-}
+$( "#signInForm" ).submit(
+  function( event ) {
+      event.preventDefault();
+      $.post(
+          "admin/signIn.php",
+          $(this).serialize(),
+          function(data,status) {alert(data);}
+          );
+    }
+  );
 
-function testMessageAdding(){
-  $("#msg_history").append("<span>adding works</span>");
-}
+$( "#newEventForm" ).submit(
+  function( event ) {
+      event.preventDefault();
+      $.post(
+          "admin/newEvent.php",
+          $(this).serialize(),
+          function(data,status) {alert(status);}
+          );
+    }
+  );
