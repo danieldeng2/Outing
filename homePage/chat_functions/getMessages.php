@@ -3,31 +3,27 @@
 
  $incomingMessagePrepend='<div class="outgoing_msg"><div class="sent_msg"><p>';
  $outgoingMessagePrepend='<div class="incoming_msg"><div class="incoming_msg_img"> <img src="icons/profile.png" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>';
- $messageAppend='</p><span class="time_date"> it works! </span></div></div>';
+ $messageTimePrepend='</p>';
+ $messageTimeAppend='</span></div></div>';
 
-
+    @ob_end_clean();
     include("../../includes/dbconnect.php");
 
     $messages = pg_query($db, "SELECT *
                                FROM messages
+                               WHERE groupId == ($_GET["groupNo"])
                                ORDER BY messages.time
-                               LIMIT 10");
+                               LIMIT 5");
 
-    while ($row = pg_fetch_row($messages)) {
-      $content = $row['content'];
-      $entities = $row['entities'];
-      $writer = $row['writer'];
-      $group = $row['group'];
-      $time = $row['time'];
-
-      // $status = $writer === $writer;
-
-      // if ($writer == $writer) {
-        echo $incomingMessagePrepend . $content . $messageAppend;
-        // } else {
-        // echo $outgoingMessagePrepend . $content . $messageAppend;
+    if (!$db) {
+      echo "query error";
     }
-    
+
+    while ($row = pg_fetch_assoc($messages)){
+      echo $row["content"] . "," . $row["writer"] . "," . $row["time"] . "</br>";
+    }
+
+
     $db.pg_close();
 
 
