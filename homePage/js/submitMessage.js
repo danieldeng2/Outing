@@ -10,17 +10,16 @@ var messageContent = document.getElementById("messageContent").value;
 
 $("#messageBar").submit(
   function ( event ) {
-    event.preventDefault();
 
     alert("success");
     $.post(
       "chat_functions/putMessages.php",
-    $(this).serialize(),
+      {message : messageContent, groupid : groupId },
+    // $(this).serialize(),
       function(data, status) {alert("message submitted");}
     );
 
-  }
-);
+  });
 
 function resetField() {
   document.getElementById('messageBar').reset();
