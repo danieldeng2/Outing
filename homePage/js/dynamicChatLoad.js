@@ -5,18 +5,18 @@
   var url = window.location.href;
   var idStart = url.indexOf("id=");
   var groupId = url.substring(idStart + 3, idStart + 4);
+  var user = getCookie("userid");
   var toDiscard = 0;
 
 $(document).ready(function(){
   setInterval(function() {
     $.post(
       "chat_functions/getMessages.php",
-      { groupNo : groupId, discard : toDiscard},
+      { groupNo : groupId},
       function(data,status) {loadEvents(data);}
     );
-    toDiscard += 5;
     loadEvents();
-  }, 1000);
+  }, 5000);
 
 });
 
@@ -27,7 +27,7 @@ function loadEvents(data){
     for (var i = 0; i < linesArray.length; i++) {
         var valsArray = linesArray[i].split(",");
         for (var j = 0; j < valsArray.length; j++) {
-            if (true) {
+            if (valsArray[1] === user) {
                 $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
             } else {
                 $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);

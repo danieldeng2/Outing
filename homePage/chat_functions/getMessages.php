@@ -13,10 +13,7 @@
                                FROM messages
                                WHERE groupId = '".$_POST["groupNo"]."'
                                AND content IS NOT NULL
-                               AND messages.time <= ALL (SELECT * 
-                                                         FROM messages AS lates_mess
-                                                         ORDER BY lates_mess.time
-                                                         LIMIT ($_POST["toDiscard"]);)
+                               AND messages.time
                                ORDER BY messages.time
                                LIMIT 5");
 
