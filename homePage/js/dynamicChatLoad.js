@@ -15,7 +15,7 @@ $(document).ready(function(){
       { groupNo : groupId},
       function(data,status) {loadEvents(data);}
       );
-      
+
   }, 500);
 });
 
@@ -30,7 +30,7 @@ function loadEvents(data){
             if (valsArray[1] === (getCookie("userid"))) {
                 $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
               } else {
-                  $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
+                $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
               }
         }
     }
