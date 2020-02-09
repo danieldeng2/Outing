@@ -27,6 +27,7 @@ function loadEvents(data){
 function valuesArray(valArray) {
   var arr = valArray.split(",");
   if (arr[1] == arr[1]) {
+    alert("got into here");
     $( "#msg_history" ).append(incomingMessagePrepend + data + messageTimePrepend + arr[2] + messageTimeAppend);
   } else {
     $( "#msg_history" ).append(outgoing_msgMessagePrepend + data + messageTimePrepend + arr[2] + messageTimeAppend);
