@@ -27,14 +27,6 @@
       echo $row["content"] . "," . $row["writer"] . "," . $row["time"] . "</br>";
     }
 
-      // $status = $writer === $writer;
-
-      // if ($writer == $writer) {
-        // echo $incomingMessagePrepend . $content . $messageTimePrepend;
-        // echo $time . $messageAppend;
-        // } else {
-        // echo $outgoingMessagePrepend . $content . $messageAppend;
-
 
     $db.pg_close();
 
