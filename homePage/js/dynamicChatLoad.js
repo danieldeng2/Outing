@@ -21,15 +21,15 @@ function loadEvents(data){
     for (var i = 0; i < linesArray.length; i++) {
         var valsArray = linesArray[i].split(",");
         for (var j = 0; j < valsArray.length; j++) {
+            if (true) {
+                $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
+              } else {
+                  $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
+              }
           // $("#msg_history").append(incomingMessagePrepend + linesArray[i] + messageTimePrepend + messageTimeAppend);
-          $("#msg_history").append(valsArray[j]);
+          // $("#msg_history").append(valsArray[j]);
         }
     //   alert(i);
-    //   if (true) {
-    //     $("#msg_history").append(incomingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
-    //   } else {
-    //     $("#msg_history").append(outgoingMessagePrepend + valsArray[0] + messageTimePrepend + messageTimeAppend);
     }
-    // }
   }
 }
