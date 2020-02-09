@@ -2,11 +2,13 @@
   var outgoingMessagePrepend='<div class="incoming_msg"><div class="incoming_msg_img"> <img src="icons/profile.png" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>';
   var messageTimePrepend='</p>';
   var messageTimeAppend='</span></div></div>';
+  var idStart = url.indexOf("id=");
+  var groupId = url.substring(idStart + 2, idStart + 4);
 
 $(document).ready(function(){
   $.post(
     "chat_functions/getMessages.php",
-    {var:$_COOKIE}
+    { groupNo : groupId}
     ,
     function(data,status) {loadEvents(data);}
     );
