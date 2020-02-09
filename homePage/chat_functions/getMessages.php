@@ -8,7 +8,7 @@
 
     @ob_end_clean();
     include("../../includes/dbconnect.php");
-    echo "begin";
+    
     $messages = pg_query($db, "SELECT *
                                FROM messages
                                ORDER BY messages.time
@@ -17,7 +17,7 @@
     if (!$db) {
       echo "query error";
     }
-    
+
     while ($row = pg_fetch_assoc($messages)){
       $content = $row['content'];
       $entities = $row['entities'];
