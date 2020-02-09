@@ -3,7 +3,8 @@
 
  $incomingMessagePrepend='<div class="outgoing_msg"><div class="sent_msg"><p>';
  $outgoingMessagePrepend='<div class="incoming_msg"><div class="incoming_msg_img"> <img src="icons/profile.png" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>';
- $messageAppend='</p><span class="time_date"> it works! </span></div></div>';
+ $messageTimePrepend='</p>';
+ $messageTimeAppend='</span></div></div>';
 
 
     include("../../includes/dbconnect.php");
@@ -13,7 +14,7 @@
                                ORDER BY messages.time
                                LIMIT 10");
 
-    while ($row = pg_fetch_row($messages)) {
+    while ($row = pg_fetch_assoc($messages)) {
       $content = $row['content'];
       $entities = $row['entities'];
       $writer = $row['writer'];
@@ -23,11 +24,12 @@
       // $status = $writer === $writer;
 
       // if ($writer == $writer) {
-        echo $incomingMessagePrepend . $content . $messageAppend;
+        echo $incomingMessagePrepend . $content . $messageTimePrepend;
+        echo $time . $messageAppend;
         // } else {
         // echo $outgoingMessagePrepend . $content . $messageAppend;
     }
-    
+
     $db.pg_close();
 
 
