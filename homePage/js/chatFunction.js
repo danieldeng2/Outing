@@ -4,6 +4,12 @@ var groupId = url.substring(idStart + 3, idStart + 4);
 
 $(document).ready(function(){
   $.post(
+    "admin/loadLeftColumn.php",
+    {groupNo:groupId},
+    function(data,status) {loadLeftColumn(data);}
+    );
+
+  $.post(
     "admin/loadRightColumn.php",
     {groupNo:groupId},
     function(data,status) {loadRightColumn(data);}
@@ -13,6 +19,11 @@ $(document).ready(function(){
 function loadRightColumn(data){
   if(data != undefined){
     $( "#rightColumn" ).append(data);}
+}
+
+function loadLeftColumn(data){
+  if(data != undefined){
+    $( "#LeftColumnLoad" ).append(data);}
 }
 
 function setPollSubmit(id){
