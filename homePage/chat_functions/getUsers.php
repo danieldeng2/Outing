@@ -5,9 +5,15 @@
     include("../../includes/dbconnect.php");
 
     $users = pg_query($db, "SELECT *
+<<<<<<< HEAD
                             FROM users
                             WHERE group == 1
                             LIMIT 5");
+=======
+                               FROM users
+                               WHERE group == 1
+                               LIMIT 5");
+>>>>>>> 3ffc8ed243da7272e8b0b4680c23a904948f0f81
 
     if (!$db) {
       echo "query error";
