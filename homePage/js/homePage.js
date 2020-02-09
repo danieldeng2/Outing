@@ -5,7 +5,7 @@ $(document).ready(function(){
     );
 
   loadEvents();
-    
+
 
 });
 
@@ -79,5 +79,3 @@ $( "#newEventForm" ).submit(
           );
     }
   );
-  
-
