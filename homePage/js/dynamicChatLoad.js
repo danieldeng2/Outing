@@ -3,14 +3,12 @@ $(document).ready(function(){
     "chat_functions/getMessages.php",
     function(data,status) {addMessageToChat(data);}
   );
-  alert("fdsf");
 });
 
-alert("got out of first");
 
 function addMessageToChat(data) {
-  $("msg_history").load(data);
-  alert("loaded Msg");
+  alert("got into add message");
+  $("msg_history").append(data);
 }
 
 function resetForm() {
